@@ -1,99 +1,101 @@
 return {
-	{"nvim-treesitter",
-	event = { "DeferredUIEnter" },
-	for_cat = "general.core",
-	load = function(name)
-		require("lzextras").loaders.multi({ name, "nvim-treesitter-textobjects" })
-	end,
-	after = function(_)
-		vim.defer_fn(function()
-			require("nvim-treesitter.configs").setup({
-				-- auto_install = true,
-				-- parser_install_dir = absolute_path,
+	{
+		"nvim-treesitter",
+		event = { "DeferredUIEnter" },
+		for_cat = "general.core",
+		load = function(name)
+			require("lzextras").loaders.multi({ name, "nvim-treesitter-textobjects" })
+		end,
+		after = function(_)
+			vim.defer_fn(function()
+				require("nvim-treesitter.configs").setup({
+					-- auto_install = true,
+					-- parser_install_dir = absolute_path,
 
-				highlight = {
-					enable = true,
-					-- additional_vim_regex_highlighting = { "kotlin" },
-				},
-				indent = {
-					enable = true,
-				},
-				incremental_selection = {
-					enable = true,
-					keymaps = {
-						init_selection = "<M-t>",
-						node_incremental = "<M-t>",
-						scope_incremental = "<M-T>",
-						node_decremental = "<M-r>",
-					},
-				},
-				textobjects = {
-					select = {
+					highlight = {
 						enable = true,
-						lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+						-- additional_vim_regex_highlighting = { "kotlin" },
+					},
+					indent = {
+						enable = true,
+					},
+					incremental_selection = {
+						enable = true,
 						keymaps = {
-							-- You can use the capture groups defined in textobjects.scm
-							["aa"] = "@parameter.outer",
-							["ia"] = "@parameter.inner",
-							["af"] = "@function.outer",
-							["if"] = "@function.inner",
-							["ac"] = "@class.outer",
-							["ic"] = "@class.inner",
+							init_selection = "<M-t>",
+							node_incremental = "<M-t>",
+							scope_incremental = "<M-T>",
+							node_decremental = "<M-r>",
 						},
 					},
-					move = {
-						enable = true,
-						set_jumps = true, -- whether to set jumps in the jumplist
-						goto_next_start = {
-							["]m"] = "@function.outer",
-							["]]"] = "@class.outer",
+					textobjects = {
+						select = {
+							enable = true,
+							lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+							keymaps = {
+								-- You can use the capture groups defined in textobjects.scm
+								["aa"] = "@parameter.outer",
+								["ia"] = "@parameter.inner",
+								["af"] = "@function.outer",
+								["if"] = "@function.inner",
+								["ac"] = "@class.outer",
+								["ic"] = "@class.inner",
+							},
 						},
-						goto_next_end = {
-							["]M"] = "@function.outer",
-							["]["] = "@class.outer",
+						move = {
+							enable = true,
+							set_jumps = true, -- whether to set jumps in the jumplist
+							goto_next_start = {
+								["]m"] = "@function.outer",
+								["]]"] = "@class.outer",
+							},
+							goto_next_end = {
+								["]M"] = "@function.outer",
+								["]["] = "@class.outer",
+							},
+							goto_previous_start = {
+								["[m"] = "@function.outer",
+								["[["] = "@class.outer",
+							},
+							goto_previous_end = {
+								["[M"] = "@function.outer",
+								["[]"] = "@class.outer",
+							},
 						},
-						goto_previous_start = {
-							["[m"] = "@function.outer",
-							["[["] = "@class.outer",
-						},
-						goto_previous_end = {
-							["[M"] = "@function.outer",
-							["[]"] = "@class.outer",
+						swap = {
+							enable = true,
+							swap_next = {
+								["<leader>a"] = "@parameter.inner",
+							},
+							swap_previous = {
+								["<leader>A"] = "@parameter.inner",
+							},
 						},
 					},
-					swap = {
-						enable = true,
-						swap_next = {
-							["<leader>a"] = "@parameter.inner",
-						},
-						swap_previous = {
-							["<leader>A"] = "@parameter.inner",
-						},
-					},
+				})
+			end, 0)
+		end,
+	},
+	{
+		"oil.nvim",
+		event = "DeferredUIEnter",
+		for_cat = "general.core",
+		after = function()
+			require("oil").setup({
+				default_file_explorer = true,
+				columns = { "icon", "permissions", "size" },
+				keymaps = {
+					["-"] = "actions.parent",
+					["<CR>"] = "actions.select",
+					["<C-v>"] = "actions.select_vsplit",
+					["<C-s>"] = "actions.select_split",
 				},
 			})
-		end, 0)
-	end,},
-	{
-    "oil.nvim",
-    event = "DeferredUIEnter",
-	for_cat = "general.core",
-    after = function()
-      require("oil").setup({
-        default_file_explorer = true,
-        columns = { "icon", "permissions", "size" },
-        keymaps = {
-          ["-"] = "actions.parent",
-          ["<CR>"] = "actions.select",
-          ["<C-v>"] = "actions.select_vsplit",
-          ["<C-s>"] = "actions.select_split",
-        },
-      })
-    end,
-    keys = { {
-      "<leader>o",
-      "<CMD>Oil<CR>",
-      desc = "Oil",
-    } },
-  },
+		end,
+		keys = { {
+			"<leader>o",
+			"<CMD>Oil<CR>",
+			desc = "Oil",
+		} },
+	},
 }
