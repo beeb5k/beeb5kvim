@@ -1,5 +1,5 @@
 return {
-	"nvim-treesitter",
+	{"nvim-treesitter",
 	event = { "DeferredUIEnter" },
 	for_cat = "general.core",
 	load = function(name)
@@ -73,5 +73,27 @@ return {
 				},
 			})
 		end, 0)
-	end,
+	end,},
+	{
+    "oil.nvim",
+    event = "DeferredUIEnter",
+	for_cat = "general.core",
+    after = function()
+      require("oil").setup({
+        default_file_explorer = true,
+        columns = { "icon", "permissions", "size" },
+        keymaps = {
+          ["-"] = "actions.parent",
+          ["<CR>"] = "actions.select",
+          ["<C-v>"] = "actions.select_vsplit",
+          ["<C-s>"] = "actions.select_split",
+        },
+      })
+    end,
+    keys = { {
+      "<leader>o",
+      "<CMD>Oil<CR>",
+      desc = "Oil",
+    } },
+  },
 }

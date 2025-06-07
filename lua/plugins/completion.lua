@@ -2,7 +2,7 @@ return {
 	{
 		"blink.cmp",
 		event = { "InsertEnter" },
-        for_cat = "general.blink",
+		for_cat = "general.blink",
 		on_require = "blink",
 		after = function(plugin)
 			require("blink.cmp").setup({

@@ -119,8 +119,9 @@
           startupPlugins = {
             gitPlugins = with pkgs.neovimPlugins; [ ];
             general = with pkgs.vimPlugins; [
-              lzextras
               lze
+              lzextras
+              tokyonight-nvim
             ];
           };
 
@@ -135,8 +136,13 @@
                 colorful-menu-nvim
               ];
               core = [
+                oil-nvim
                 nvim-treesitter.withAllGrammars
                 nvim-treesitter-textobjects
+              ];
+              ui = [
+                mini-icons
+                lualine-nvim
               ];
             };
           };
