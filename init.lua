@@ -1,3 +1,4 @@
+require("config")
 require("lze").load({ { import = "plugins" } })
 
 require("tokyonight").setup({
