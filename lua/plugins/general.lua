@@ -78,7 +78,8 @@ return {
 	},
 	{
 		"oil.nvim",
-		event = "DeferredUIEnter",
+		keys = { { "<leader>o", "<CMD>Oil<CR>", desc = "Oil" } },
+		-- event = { "DeferredUIEnter" },
 		for_cat = "general.core",
 		after = function()
 			require("oil").setup({
@@ -92,10 +93,30 @@ return {
 				},
 			})
 		end,
-		keys = { {
-			"<leader>o",
-			"<CMD>Oil<CR>",
-			desc = "Oil",
-		} },
+	},
+	{
+		"neogit",
+		keys = { { "<leader>ng", "<CMD>Neogit<CR>", desc = "Neogit" } },
+		for_cat = "general.core",
+		-- event = { "BufReadPost" },
+		after = function()
+			require("neogit").setup({})
+		end,
+	},
+	{
+		"gitsigns.nvim",
+		event = { "BufReadPost" },
+		for_cat = "general.core",
+		after = function()
+			require("gitsigns").setup({})
+		end,
+	},
+	{
+		"fzf-lua",
+		event = { "DeferredUIEnter" },
+		for_cat = "general.core",
+		after = function()
+			require("fzf-lua").setup({ "telescope" })
+		end,
 	},
 }
