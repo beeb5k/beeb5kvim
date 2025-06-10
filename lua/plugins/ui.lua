@@ -1,3 +1,4 @@
+
 return {
 	{
 		"mini.icons",
@@ -11,7 +12,12 @@ return {
 		"lualine.nvim",
 		event = { "DeferredUIEnter" },
 		for_cat = "general.ui",
+        load = function(name)
+			require("lzextras").loaders.multi({ name, "lsp-progress" })
+		end,
+
 		after = function(_)
+            require("lsp-progress").setup()
 			require("lualine").setup({
 				require("lualine").setup({
 					options = {
@@ -40,7 +46,6 @@ return {
 						lualine_b = { "branch" },
 						lualine_c = {
 							function()
-								-- invoke `progress` here.
 								return require("lsp-progress").progress()
 							end,
 						},
@@ -59,6 +64,13 @@ return {
 					},
 				}),
 			})
+vim.api.nvim_create_augroup("lualine_augroup", { clear = true })
+vim.api.nvim_create_autocmd("User", {
+  group = "lualine_augroup",
+  pattern = "LspProgressStatusUpdated",
+  callback = require("lualine").refresh,
+})
 		end,
 	},
 }
+

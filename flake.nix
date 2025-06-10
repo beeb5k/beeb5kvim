@@ -63,6 +63,7 @@
               lze
               lzextras
               tokyonight-nvim
+              lsp-progress-nvim
             ];
           };
 
@@ -79,7 +80,6 @@
                 fzf-lua
                 oil-nvim
                 gitsigns-nvim
-                lsp-progress-nvim
                 nvim-treesitter-textobjects
                 nvim-treesitter.withAllGrammars
               ];
