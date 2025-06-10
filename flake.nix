@@ -51,6 +51,9 @@
         {
           lspsAndRuntimeDeps = {
             general = with pkgs; [
+                            lua-language-server
+                            clang-tools
+                            rust-analyzer
             ];
           };
 
@@ -76,6 +79,7 @@
                 fzf-lua
                 oil-nvim
                 gitsigns-nvim
+                lsp-progress-nvim
                 nvim-treesitter-textobjects
                 nvim-treesitter.withAllGrammars
               ];

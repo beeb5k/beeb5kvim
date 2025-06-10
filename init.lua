@@ -1,4 +1,5 @@
 require("config")
+require("LSPs")
 require("lze").load({ { import = "plugins" } })
 
 require("tokyonight").setup({

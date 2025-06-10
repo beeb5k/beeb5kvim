@@ -13,33 +13,51 @@ return {
 		for_cat = "general.ui",
 		after = function(_)
 			require("lualine").setup({
-				options = {
-					theme = "tokyonight",
-					component_separators = "",
-					section_separators = { left = "", right = "" },
-				},
-				sections = {
-					lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
-					lualine_b = { "filename", "branch" },
-					lualine_c = {
-						"%=", --[[ add your center components here in place of this comment ]]
+				require("lualine").setup({
+					options = {
+						theme = {
+							normal = {
+								a = { fg = "NONE", bg = "NONE" },
+								b = { fg = "NONE", bg = "NONE" },
+								c = { fg = "NONE", bg = "NONE" },
+							},
+							insert = { a = { fg = "NONE", bg = "NONE" } },
+							visual = { a = { fg = "NONE", bg = "NONE" } },
+							replace = { a = { fg = "NONE", bg = "NONE" } },
+							command = { a = { fg = "NONE", bg = "NONE" } },
+							inactive = {
+								a = { fg = "NONE", bg = "NONE" },
+								b = { fg = "NONE", bg = "NONE" },
+								c = { fg = "NONE", bg = "NONE" },
+							},
+						},
+						section_separators = "",
+						component_separators = "",
+						icons_enabled = true, -- optional: to match default vim
 					},
-					lualine_x = {},
-					lualine_y = { "filetype", "progress" },
-					lualine_z = {
-						{ "location", separator = { right = "" }, left_padding = 2 },
+					sections = {
+						lualine_a = { "filename" },
+						lualine_b = { "branch" },
+						lualine_c = {
+							function()
+								-- invoke `progress` here.
+								return require("lsp-progress").progress()
+							end,
+						},
+						lualine_x = {
+							{
+								"diagnostics",
+								sources = { "nvim_diagnostic" },
+								sections = { "error", "warn", "info", "hint" },
+								symbols = { error = "E:", warn = "W:", info = "I:", hint = "H:" },
+								colored = false,
+								update_in_insert = false,
+							},
+						},
+						lualine_y = { "filetype", "progress" },
+						lualine_z = { "location" },
 					},
-				},
-				inactive_sections = {
-					lualine_a = { "filename" },
-					lualine_b = {},
-					lualine_c = {},
-					lualine_x = {},
-					lualine_y = {},
-					lualine_z = { "location" },
-				},
-				tabline = {},
-				extensions = {},
+				}),
 			})
 		end,
 	},
