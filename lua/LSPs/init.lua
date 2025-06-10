@@ -2,6 +2,8 @@ vim.lsp.enable({
     "clangd",
     "lua_ls",
     "rust_analyzer",
+    "nil_ls",
+    "nixd",
 })
 
 vim.lsp.inlay_hint.enable(true)
@@ -11,9 +13,12 @@ vim.diagnostic.config({
     -- float = {
     --     border = "rounded",
     -- },
-    virtual_lines = {
-        current_line = true,
+    virtual_text = {
+        current_line = true
     },
+    -- virtual_lines = {
+    --     current_line = true,
+    -- },
 })
 
 -- vim.api.nvim_create_autocmd("CursorHold", {
@@ -31,6 +36,34 @@ vim.lsp.config("*", {
         },
     },
     root_markers = { ".git", ".editorconfig", "flake.nix", "shell.nix", "flake.lock" },
+})
+
+vim.lsp.config("nil_ls", {
+    cmd = { "nil" },
+    filetypes = { "nix" },
+    -- ["nil"] = {
+    --   formatting = {
+    --     command = { "nixfmt-unstable" },
+    --   },
+    -- },
+})
+
+-- Example disabling diagnostics provider on nixd
+vim.lsp.config("nixd", {
+    cmd = { "nixd" },
+    filetypes = { "nix" },
+    root_dir = vim.fs.root(0, { "flake.nix", "shell.nix", ".git" }),
+    settings = {
+        nixd = {
+            inlayHints = {
+                enable = true,
+            },
+        },
+    },
+    on_attach = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.diagnosticProvider = false
+    end,
 })
 
 vim.lsp.config("clangd", {

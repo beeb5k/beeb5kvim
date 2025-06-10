@@ -51,9 +51,12 @@
         {
           lspsAndRuntimeDeps = {
             general = with pkgs; [
-                            lua-language-server
-                            clang-tools
-                            rust-analyzer
+              lua-language-server
+              clang-tools
+              rust-analyzer
+              nixfmt-rfc-style
+              nil
+              nixd
             ];
           };
 
