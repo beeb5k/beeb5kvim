@@ -1,5 +1,5 @@
 return {
-	{ import = "plugins.ui" },
-	{ import = "plugins.general" },
-	{ import = "plugins.completion" },
+    { import = "plugins.ui" },
+    { import = "plugins.general" },
+    { import = "plugins.completion" },
 }
