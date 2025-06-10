@@ -8,6 +8,9 @@ vim.lsp.inlay_hint.enable(true)
 
 vim.diagnostic.config({
     update_in_insert = true,
+    -- float = {
+    --     border = "rounded",
+    -- },
     virtual_lines = {
         current_line = true,
     },
@@ -72,7 +75,7 @@ vim.lsp.config("lua_ls", {
                 checkThirdParty = false,
                 library = {
                     -- '${3rd}/luv/library',
-                    unpack(vim.api.nvim_get_runtime_file("", true)),
+                    -- unpack(vim.api.nvim_get_runtime_file("", true)),
                 },
             },
             completion = {

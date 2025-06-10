@@ -14,8 +14,9 @@ require("tokyonight").setup({
         keywords = { italic = true },
         functions = {},
         variables = {},
+        colors = { bg_float = "none" },
         sidebars = "dark", -- style for sidebars, see below
-        floats = "dark", -- style for floating windows
+        floats = "transparent", -- style for floating windows
     },
 })
 
