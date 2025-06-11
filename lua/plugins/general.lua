@@ -119,4 +119,20 @@ return {
             require("fzf-lua").setup({ "telescope" })
         end,
     },
+    {
+        "nvim-ufo",
+        event = { "DeferredUIEnter" },
+        for_cat = "general.core",
+                load = function(name)
+            require("lzextras").loaders.multi({ name, "promise-async" })
+        end,
+
+        after = function()
+            require("ufo").setup({
+                provider_selector = function(bufnr, filetype, buftype)
+                    return { "treesitter", "indent" }
+                end,
+            })
+        end,
+    },
 }

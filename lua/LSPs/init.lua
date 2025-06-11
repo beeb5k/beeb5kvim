@@ -10,11 +10,8 @@ vim.lsp.inlay_hint.enable(true)
 
 vim.diagnostic.config({
     update_in_insert = true,
-    -- float = {
-    --     border = "rounded",
-    -- },
     virtual_text = {
-        current_line = true
+        current_line = true,
     },
     -- virtual_lines = {
     --     current_line = true,
@@ -41,14 +38,8 @@ vim.lsp.config("*", {
 vim.lsp.config("nil_ls", {
     cmd = { "nil" },
     filetypes = { "nix" },
-    -- ["nil"] = {
-    --   formatting = {
-    --     command = { "nixfmt-unstable" },
-    --   },
-    -- },
 })
 
--- Example disabling diagnostics provider on nixd
 vim.lsp.config("nixd", {
     cmd = { "nixd" },
     filetypes = { "nix" },
@@ -146,6 +137,9 @@ vim.lsp.config("rust_analyzer", {
             },
             diagnostics = {
                 enable = true,
+                experimental = {
+                    enable = true,
+                },
             },
             procMacro = {
                 enable = true,

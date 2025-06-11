@@ -65,6 +65,7 @@
             general = with pkgs.vimPlugins; [
               lze
               lzextras
+              promise-async
               tokyonight-nvim
               lsp-progress-nvim
             ];
@@ -82,6 +83,7 @@
                 neogit
                 fzf-lua
                 oil-nvim
+                nvim-ufo
                 gitsigns-nvim
                 nvim-treesitter-textobjects
                 nvim-treesitter.withAllGrammars

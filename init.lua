@@ -18,6 +18,13 @@ require("tokyonight").setup({
         sidebars = "dark", -- style for sidebars, see below
         floats = "transparent", -- style for floating windows
     },
+    on_highlights = function(hl, c)
+        hl.CursorLineNr = {
+            fg = c.purple, -- or any hex: "#fab387"
+            bold = false,
+        }
+    end,
 })
 
 vim.cmd([[colorscheme tokyonight]])
+
