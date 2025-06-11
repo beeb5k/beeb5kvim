@@ -17,7 +17,7 @@ return {
                         -- additional_vim_regex_highlighting = { "kotlin" },
                     },
                     indent = {
-                        enable = true,
+                        enable = false,
                     },
                     incremental_selection = {
                         enable = true,
@@ -104,26 +104,10 @@ return {
         end,
     },
     {
-        "gitsigns.nvim",
-        event = { "BufReadPost" },
-        for_cat = "general.core",
-        after = function()
-            require("gitsigns").setup({})
-        end,
-    },
-    {
-        "fzf-lua",
-        event = { "DeferredUIEnter" },
-        for_cat = "general.core",
-        after = function()
-            require("fzf-lua").setup({ "telescope" })
-        end,
-    },
-    {
         "nvim-ufo",
         event = { "DeferredUIEnter" },
         for_cat = "general.core",
-                load = function(name)
+        load = function(name)
             require("lzextras").loaders.multi({ name, "promise-async" })
         end,
 
@@ -133,6 +117,29 @@ return {
                     return { "treesitter", "indent" }
                 end,
             })
+        end,
+    },
+    {
+        "fzf-lua",
+        event = { "DeferredUIEnter" },
+        for_cat = "general.core",
+        after = function()
+        local fzf =  require("fzf-lua")
+        fzf.setup({ "telescope"  })
+        -- 🔹 Global keymaps (normal mode)
+		vim.keymap.set("n", "<leader><space>", function()
+			local is_git = vim.fn.system("git rev-parse --is-inside-work-tree 2>/dev/null"):match("true")
+			if is_git then
+				fzf.git_files()
+			else
+				fzf.files()
+			end
+		end, { desc = "Smart Find Files" })
+
+		vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "Find Files" })
+		vim.keymap.set("n", "<leader>fg", fzf.live_grep, { desc = "Live Grep" })
+		vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "Buffers" })
+		vim.keymap.set("n", "<leader>fr", fzf.oldfiles, { desc = "Recent Files" })
         end,
     },
 }

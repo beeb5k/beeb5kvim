@@ -71,4 +71,15 @@ return {
             })
         end,
     },
+    {
+        "indent-blankline.nvim",
+        event = { "BufReadPost" },
+        for_cat = "general.ui",
+        after = function()
+            require("ibl").setup({
+                indent = { char = "│" },
+                scope = { enabled = false },
+            })
+        end,
+    },
 }

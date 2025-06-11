@@ -23,4 +23,3 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>")
 
 -- vim.keymap.set("n", "zR", require("ufo").openAllFolds)
 -- vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-

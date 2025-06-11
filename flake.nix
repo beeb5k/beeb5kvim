@@ -84,13 +84,21 @@
                 fzf-lua
                 oil-nvim
                 nvim-ufo
-                gitsigns-nvim
                 nvim-treesitter-textobjects
                 nvim-treesitter.withAllGrammars
               ];
               ui = [
                 mini-icons
                 lualine-nvim
+                indent-blankline-nvim
+              ];
+            };
+            extras = with pkgs.vimPlugins; {
+              core = [
+                nvim-surround
+                tabout-nvim
+                nvim-ts-autotag
+                ultimate-autopair-nvim
               ];
             };
           };
@@ -132,6 +140,7 @@
               # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
             };
             categories = {
+              extras = true;
               general = true;
               gitPlugins = true;
             };

@@ -16,13 +16,14 @@ function _G.MyStatusCol()
     if foldlevel == 0 then
         foldchar = " "
     elseif foldclosed ~= -1 and foldclosed == lnum then
-        foldchar = "⏵"
+        foldchar = "▷"
     elseif foldlevel > foldlevel_before then
-        foldchar = "╭"
-    elseif foldlevel > foldlevel_after then
-        foldchar = "╰"
-    else
-        foldchar = "│"
+        foldchar = "▽"
+        -- foldchar = "╭"
+    -- elseif foldlevel > foldlevel_after then
+    --     foldchar = "╰"
+    -- else
+    --     foldchar = "│"
     end
 
     -- Diagnostic icon logic
@@ -30,9 +31,9 @@ function _G.MyStatusCol()
     local diags = vim.diagnostic.get(0, { lnum = lnum - 1 })
     local severity_icons = {
         [vim.diagnostic.severity.ERROR] = { icon = "", hl = "DiagnosticSignError" },
-        [vim.diagnostic.severity.WARN]  = { icon = "", hl = "DiagnosticSignWarn" },
-        [vim.diagnostic.severity.INFO]  = { icon = "", hl = "DiagnosticSignInfo" },
-        [vim.diagnostic.severity.HINT]  = { icon = "", hl = "DiagnosticSignHint" },
+        [vim.diagnostic.severity.WARN] = { icon = "", hl = "DiagnosticSignWarn" },
+        [vim.diagnostic.severity.INFO] = { icon = "", hl = "DiagnosticSignInfo" },
+        [vim.diagnostic.severity.HINT] = { icon = "", hl = "DiagnosticSignHint" },
     }
 
     local highest = nil
@@ -48,6 +49,5 @@ function _G.MyStatusCol()
     end
 
     -- Format: diagnostic | relnum | fold
-    return string.format("%s %2s %s ", diag_sign, relnum, foldchar)
+    return string.format("%s %s %s ", diag_sign, foldchar, relnum)
 end
-
