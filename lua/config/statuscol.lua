@@ -30,10 +30,10 @@ function _G.MyStatusCol()
     local diag_sign = " "
     local diags = vim.diagnostic.get(0, { lnum = lnum - 1 })
     local severity_icons = {
-        [vim.diagnostic.severity.ERROR] = { icon = "", hl = "DiagnosticSignError" },
+        [vim.diagnostic.severity.ERROR] = { icon = "", hl = "DiagnosticSignError" },
         [vim.diagnostic.severity.WARN] = { icon = "", hl = "DiagnosticSignWarn" },
-        [vim.diagnostic.severity.INFO] = { icon = "", hl = "DiagnosticSignInfo" },
-        [vim.diagnostic.severity.HINT] = { icon = "", hl = "DiagnosticSignHint" },
+        [vim.diagnostic.severity.INFO] = { icon = "󰋼", hl = "DiagnosticSignInfo" },
+        [vim.diagnostic.severity.HINT] = { icon = "", hl = "DiagnosticSignHint" },
     }
 
     local highest = nil
