@@ -84,12 +84,15 @@
                 fzf-lua
                 oil-nvim
                 nvim-ufo
+                nvim-lint
+                conform-nvim
                 nvim-treesitter-textobjects
                 nvim-treesitter.withAllGrammars
               ];
               ui = [
                 mini-icons
                 lualine-nvim
+                eyeliner-nvim
                 indent-blankline-nvim
               ];
             };

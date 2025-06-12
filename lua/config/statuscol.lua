@@ -20,10 +20,10 @@ function _G.MyStatusCol()
     elseif foldlevel > foldlevel_before then
         foldchar = "▽"
         -- foldchar = "╭"
-    -- elseif foldlevel > foldlevel_after then
-    --     foldchar = "╰"
-    -- else
-    --     foldchar = "│"
+        -- elseif foldlevel > foldlevel_after then
+        --     foldchar = "╰"
+        -- else
+        --     foldchar = "│"
     end
 
     -- Diagnostic icon logic

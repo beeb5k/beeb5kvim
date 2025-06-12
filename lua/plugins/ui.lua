@@ -14,7 +14,6 @@ return {
         load = function(name)
             require("lzextras").loaders.multi({ name, "lsp-progress" })
         end,
-
         after = function(_)
             require("lsp-progress").setup()
             require("lualine").setup({
@@ -79,6 +78,17 @@ return {
             require("ibl").setup({
                 indent = { char = "│" },
                 scope = { enabled = false },
+            })
+        end,
+    },
+    {
+        "eyeliner.nvim",
+        event = { "DeferredUIEnter" },
+        for_cat = "general.ui",
+        after = function()
+            require("eyeliner").setup({
+                highlight_on_key = true,
+                dim = true,
             })
         end,
     },
