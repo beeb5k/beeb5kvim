@@ -51,12 +51,38 @@
         {
           lspsAndRuntimeDeps = {
             general = with pkgs; [
-              lua-language-server
-              clang-tools
               rust-analyzer
-              nixfmt-rfc-style
+            ];
+
+            markdown = with pkgs; [
+              marksman
+              harper
+            ];
+
+            nix = with pkgs; [
               nil
               nixd
+              nixfmt-rfc-style
+            ];
+
+            lua = with pkgs; [
+              lua-language-server
+            ];
+
+            clang = with pkgs; [
+              cmake
+              valgrind
+              clang-tools
+              cmake-format
+              cmake-language-server
+            ];
+
+            web = with pkgs; [
+              eslint
+              prettier
+              typescript-language-server
+              tailwindcss-language-server
+              vscode-langservers-extracted
             ];
           };
 
@@ -76,7 +102,6 @@
             general = with pkgs.vimPlugins; {
               blink = [
                 blink-cmp
-                blink-compat
                 colorful-menu-nvim
               ];
               core = [
@@ -143,8 +168,13 @@
               # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
             };
             categories = {
+              nix = true;
+              lua = true;
+              web = true;
+              clang = true;
               extras = true;
               general = true;
+              markdown = true;
               gitPlugins = true;
             };
           };

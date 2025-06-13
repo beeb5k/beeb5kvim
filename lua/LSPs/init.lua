@@ -1,9 +1,17 @@
+require("LSPs.web")
 vim.lsp.enable({
     "clangd",
     "lua_ls",
     "rust_analyzer",
     "nil_ls",
     "nixd",
+    "html",
+    "jsonls",
+    "cssls",
+    "tailwindcss",
+    "tsserver",
+    "marksman",
+    "harper",
 })
 
 vim.lsp.inlay_hint.enable(true)
@@ -33,6 +41,17 @@ vim.lsp.config("*", {
         },
     },
     root_markers = { ".git", ".editorconfig", "flake.nix", "shell.nix", "flake.lock" },
+})
+
+vim.lsp.config("marksman", {
+    cmd = { "marksman", "server" },
+    filetypes = { "markdown", "markdown.mdx" },
+    root_markers = { ".git", ".marksman.toml" }, -- or your project markers
+})
+
+vim.lsp.config("harper", {
+    cmd = { "harper-ls", "--stdio" },
+    filetypes = { "markdown", "text", "gitcommit" },
 })
 
 vim.lsp.config("nil_ls", {
