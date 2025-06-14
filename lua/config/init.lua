@@ -1,3 +1,3 @@
 require("config.sets")
 require("config.remaps")
-require("config.statuscol")
+-- require("config.statuscol")

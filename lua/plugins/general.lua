@@ -119,27 +119,4 @@ return {
             })
         end,
     },
-    {
-        "fzf-lua",
-        event = { "DeferredUIEnter" },
-        for_cat = "general.core",
-        after = function()
-            local fzf = require("fzf-lua")
-            fzf.setup({ "telescope" })
-            -- 🔹 Global keymaps (normal mode)
-            vim.keymap.set("n", "<leader><space>", function()
-                local is_git = vim.fn.system("git rev-parse --is-inside-work-tree 2>/dev/null"):match("true")
-                if is_git then
-                    fzf.git_files()
-                else
-                    fzf.files()
-                end
-            end, { desc = "Smart Find Files" })
-
-            vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "Find Files" })
-            vim.keymap.set("n", "<leader>fg", fzf.live_grep, { desc = "Live Grep" })
-            vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "Buffers" })
-            vim.keymap.set("n", "<leader>fr", fzf.oldfiles, { desc = "Recent Files" })
-        end,
-    },
 }

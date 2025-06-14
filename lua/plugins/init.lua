@@ -1,5 +1,6 @@
 return {
     { import = "plugins.ui" },
+    { import = "plugins.snacks" },
     { import = "plugins.extras" },
     { import = "plugins.general" },
     { import = "plugins.completion" },

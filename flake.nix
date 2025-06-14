@@ -91,6 +91,7 @@
             general = with pkgs.vimPlugins; [
               lze
               lzextras
+              snacks-nvim
               promise-async
               tokyonight-nvim
               lsp-progress-nvim
@@ -106,7 +107,6 @@
               ];
               core = [
                 neogit
-                fzf-lua
                 oil-nvim
                 nvim-ufo
                 nvim-lint
@@ -118,7 +118,9 @@
                 mini-icons
                 lualine-nvim
                 eyeliner-nvim
-                indent-blankline-nvim
+              ];
+              flex = [
+                cord-nvim
               ];
             };
             extras = with pkgs.vimPlugins; {

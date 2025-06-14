@@ -15,7 +15,7 @@ vim.opt.signcolumn = "yes" -- Always show sign column
 vim.opt.colorcolumn = "85" -- Highlight column 85
 vim.opt.cursorline = true -- Highlight current line
 vim.o.winborder = "rounded"
-vim.opt.statuscolumn = [[%!v:lua.MyStatusCol()]]
+-- vim.opt.statuscolumn = [[%!v:lua.MyStatusCol()]]
 
 -- ================================
 -- 🔢 Line Numbers
