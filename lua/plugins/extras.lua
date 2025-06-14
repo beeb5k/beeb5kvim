@@ -56,28 +56,28 @@ return {
             })
         end,
     },
-    {
-        "cord.nvim",
-        event = { "DeferredUIEnter" },
-        for_cats = "general.flex",
-        after = function()
-            require("cord").setup({
-                editor = {
-                    tooltip = "I use nixos, btw.",
-                },
-                idle = {
-                    enabled = true,
-                },
-                advanced = {
-                    discord = {
-                        reconnect = {
-                            enabled = true,
-                            interval = 5000,
-                            initial = true,
-                        },
-                    },
-                },
-            })
-        end,
-    },
+    -- {
+    --     "cord.nvim",
+    --     event = { "DeferredUIEnter" },
+    --     for_cats = "general.flex",
+    --     after = function()
+    --         require("cord").setup({
+    --             editor = {
+    --                 tooltip = "I use nixos, btw.",
+    --             },
+    --             idle = {
+    --                 enabled = true,
+    --             },
+    --             advanced = {
+    --                 discord = {
+    --                     reconnect = {
+    --                         enabled = true,
+    --                         interval = 5000,
+    --                         initial = true,
+    --                     },
+    --                 },
+    --             },
+    --         })
+    --     end,
+    -- },
 }

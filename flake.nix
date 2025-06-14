@@ -177,7 +177,7 @@
               extras = true;
               general = true;
               markdown = true;
-              gitPlugins = true;
+              gitplugins = true;
             };
           };
       };

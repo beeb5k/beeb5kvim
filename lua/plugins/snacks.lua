@@ -121,7 +121,7 @@ return {
                 -- toggle = {},
 
                 -- quickfile = {},
-                -- input = {},
+                input = {},
                 zen = {
                     toggles = {
                         dim = true,
@@ -133,7 +133,7 @@ return {
                 },
                 picker = {},
                 -- gitbrowse = {},
-                lazygit = {},
+                -- lazygit = {},
                 -- git = {},
                 terminal = {},
                 scope = {},
