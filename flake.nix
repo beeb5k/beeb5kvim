@@ -92,7 +92,7 @@
               lze
               lzextras
               snacks-nvim
-              promise-async
+              promise-async # required by ufo
               tokyonight-nvim
               lsp-progress-nvim
             ];
@@ -106,17 +106,22 @@
                 colorful-menu-nvim
               ];
               core = [
-                neogit
                 oil-nvim
                 nvim-ufo
                 nvim-lint
                 conform-nvim
+                grapple-nvim
                 nvim-treesitter-textobjects
                 nvim-treesitter.withAllGrammars
+              ];
+              git = [
+                neogit
+                gitsigns-nvim
               ];
               ui = [
                 mini-icons
                 lualine-nvim
+                dropbar-nvim
                 eyeliner-nvim
               ];
               flex = [
@@ -125,10 +130,15 @@
             };
             extras = with pkgs.vimPlugins; {
               core = [
-                nvim-surround
                 tabout-nvim
+                nvim-surround
                 nvim-ts-autotag
                 ultimate-autopair-nvim
+              ];
+              markdown = [
+                obsidian-nvim
+                render-markdown-nvim
+                markdown-preview-nvim
               ];
             };
           };

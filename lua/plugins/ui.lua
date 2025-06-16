@@ -81,4 +81,12 @@ return {
             })
         end,
     },
+    {
+        "dropbar.nvim",
+        event = { "DeferredUIEnter" },
+        for_cat = "general.ui",
+        after = function(_)
+            require("dropbar").setup({})
+        end,
+    },
 }

@@ -95,15 +95,6 @@ return {
         end,
     },
     {
-        "neogit",
-        keys = { { "<leader>ng", "<CMD>Neogit<CR>", desc = "Neogit" } },
-        for_cat = "general.core",
-        -- event = { "BufReadPost" },
-        after = function()
-            require("neogit").setup({})
-        end,
-    },
-    {
         "nvim-ufo",
         event = { "DeferredUIEnter" },
         for_cat = "general.core",
