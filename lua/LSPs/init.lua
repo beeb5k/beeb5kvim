@@ -26,7 +26,7 @@ local diagnostic_float_opts = {
     -- max_height = 10,
 }
 
-vim.keymap.set("n", "<C-k>", function()
+vim.keymap.set("n", "<C-l>", function()
     vim.diagnostic.open_float(diagnostic_float_opts)
 end, { desc = "Show diagnostics for current line" })
 
