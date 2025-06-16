@@ -16,20 +16,28 @@ vim.lsp.enable({
 
 vim.lsp.inlay_hint.enable(true)
 
-vim.diagnostic.config({
-    update_in_insert = true,
-    -- virtual_text = {
-    --     current_line = true,
-    -- },
-    virtual_lines = {
-        current_line = true,
-    },
-})
+local diagnostic_float_opts = {
+    cursor_autoclose = true,
+    focusable = false,
+    close_events = { "BufLeave", "CursorMoved", "InsertCharPre" },
+    source = "if_many",
+    severity_sort = true,
+    -- max_width = 80,
+    -- max_height = 10,
+}
 
--- vim.api.nvim_create_autocmd("CursorHold", {
--- 	callback = function()
--- 		vim.diagnostic.open_float(nil, { focusable = false, source = "if_many" })
--- 	end,
+vim.keymap.set("n", "<C-k>", function()
+    vim.diagnostic.open_float(diagnostic_float_opts)
+end, { desc = "Show diagnostics for current line" })
+
+-- vim.diagnostic.config({
+--     update_in_insert = true,
+--     -- virtual_text = {
+--     --     current_line = true,
+--     -- },
+--     virtual_lines = {
+--         current_line = true,
+--     },
 -- })
 
 vim.lsp.config("*", {
