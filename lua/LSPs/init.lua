@@ -13,6 +13,7 @@ vim.lsp.enable({
     "marksman",
     "harper",
     "bashls",
+    "gopls",
 })
 
 vim.lsp.inlay_hint.enable(true)
@@ -31,15 +32,15 @@ vim.keymap.set("n", "<C-l>", function()
     vim.diagnostic.open_float(diagnostic_float_opts)
 end, { desc = "Show diagnostics for current line" })
 
--- vim.diagnostic.config({
---     update_in_insert = true,
---     -- virtual_text = {
---     --     current_line = true,
---     -- },
---     virtual_lines = {
---         current_line = true,
---     },
--- })
+vim.diagnostic.config({
+    update_in_insert = true,
+    -- virtual_text = {
+    --     current_line = true,
+    -- },
+    -- virtual_lines = {
+    --     current_line = true,
+    -- },
+})
 
 vim.lsp.config("*", {
     capabilities = {
@@ -103,6 +104,27 @@ vim.lsp.config("clangd", {
                 ChainedCalls = true,
             },
             fallbackFlags = { "-std=c17" },
+        },
+    },
+})
+
+vim.lsp.config("gopls", {
+    cmd = { "gopls" },
+    filetypes = { "go", "gomod", "gowork", "gotmpl", "templ" },
+    root_markers = { "go.mod" },
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+                useany = true,
+                nilness = true,
+            },
+            staticcheck = true,
+            codelenses = {
+                test = true,
+                tidy = true,
+                upgrade_dependency = true,
+            },
         },
     },
 })

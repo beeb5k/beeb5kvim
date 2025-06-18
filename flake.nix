@@ -60,6 +60,15 @@
               harper
             ];
 
+            go = with pkgs; [
+              gopls
+              delve
+              gotools
+              go-tools
+              go
+              golangci-lint
+            ];
+
             nix = with pkgs; [
               nil
               nixd
