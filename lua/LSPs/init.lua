@@ -12,6 +12,7 @@ vim.lsp.enable({
     "tsserver",
     "marksman",
     "harper",
+    "bashls",
 })
 
 vim.lsp.inlay_hint.enable(true)
@@ -61,6 +62,11 @@ vim.lsp.config("harper", {
     cmd = { "harper-ls", "--stdio" },
     filetypes = { "markdown", "text", "gitcommit" },
 })
+
+vim.lsp.config.bashls = {
+    cmd = { "bash-language-server", "start" },
+    filetypes = { "bash", "sh" },
+}
 
 vim.lsp.config("nil_ls", {
     cmd = { "nil" },

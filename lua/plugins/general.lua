@@ -1,7 +1,8 @@
 return {
     {
         "nvim-treesitter",
-        event = { "DeferredUIEnter" },
+        event = { "BufReadPost" },
+        dep_of = { "otter.nvim", "render-markdown" },
         for_cat = "general.core",
         load = function(name)
             require("lzextras").loaders.multi({ name, "nvim-treesitter-textobjects" })
@@ -17,7 +18,7 @@ return {
                         -- additional_vim_regex_highlighting = { "kotlin" },
                     },
                     indent = {
-                        enable = false,
+                        enable = true,
                     },
                     incremental_selection = {
                         enable = true,
@@ -79,12 +80,12 @@ return {
     {
         "oil.nvim",
         keys = { { "<leader>o", "<CMD>Oil<CR>", desc = "Oil" } },
-        -- event = { "DeferredUIEnter" },
+        -- event = { "BufReadPre" },
         for_cat = "general.core",
         after = function()
             require("oil").setup({
                 default_file_explorer = true,
-                columns = { "icon", "permissions", "size" },
+                columns = { "git", "icon", "permissions", "size" },
                 keymaps = {
                     ["-"] = "actions.parent",
                     ["<CR>"] = "actions.select",
@@ -98,15 +99,58 @@ return {
         "nvim-ufo",
         event = { "DeferredUIEnter" },
         for_cat = "general.core",
-        load = function(name)
-            require("lzextras").loaders.multi({ name, "promise-async" })
-        end,
+        -- load = function(name)
+        --     require("lzextras").loaders.multi({ name, "promise-async" })
+        -- end,
 
         after = function()
             require("ufo").setup({
                 provider_selector = function(bufnr, filetype, buftype)
                     return { "treesitter", "indent" }
                 end,
+            })
+        end,
+    },
+    {
+        "otter.nvim",
+        for_cat = "otter",
+        -- event = { "DeferredUIEnter" },
+        on_require = { "otter" },
+        -- ft = { "markdown", "norg", "templ", "nix", "javascript", "html", "typescript", },
+        after = function(_)
+            local otter = require("otter")
+            otter.setup({
+                lsp = {
+                    -- `:h events` that cause the diagnostics to update. Set to:
+                    -- { "BufWritePost", "InsertLeave", "TextChanged" } for less performant
+                    -- but more instant diagnostic updates
+                    diagnostic_update_events = { "BufWritePost" },
+                    -- function to find the root dir where the otter-ls is started
+                    root_dir = function(_, bufnr)
+                        return vim.fs.root(bufnr or 0, {
+                            ".git",
+                            "_quarto.yml",
+                            "package.json",
+                        }) or vim.fn.getcwd(0)
+                    end,
+                },
+                buffers = {
+                    -- if set to true, the filetype of the otterbuffers will be set.
+                    -- otherwise only the autocommand of lspconfig that attaches
+                    -- the language server will be executed without setting the filetype
+                    -- write <path>.otter.<embedded language extension> files
+                    -- to disk on save of main buffer.
+                    -- usefule for some linters that require actual files
+                    -- otter files are deleted on quit or main buffer close
+                    write_to_disk = false,
+                },
+                verbose = { -- set to false to disable all verbose messages
+                    no_code_found = false, -- warn if otter.activate is called, but no injected code was found
+                },
+                strip_wrapping_quote_characters = { "'", '"', "`" },
+                -- otter may not work the way you expect when entire code blocks are indented (eg. in Org files)
+                -- When true, otter handles these cases fully.
+                handle_leading_whitespace = false,
             })
         end,
     },

@@ -52,6 +52,7 @@
           lspsAndRuntimeDeps = {
             general = with pkgs; [
               rust-analyzer
+              bash-language-server
             ];
 
             markdown = with pkgs; [
@@ -109,6 +110,7 @@
                 oil-nvim
                 nvim-ufo
                 nvim-lint
+                otter-nvim
                 conform-nvim
                 grapple-nvim
                 nvim-treesitter-textobjects
