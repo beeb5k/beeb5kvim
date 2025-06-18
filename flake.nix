@@ -194,6 +194,7 @@
               nix = true;
               lua = true;
               web = true;
+              go = true;
               clang = true;
               extras = true;
               general = true;
