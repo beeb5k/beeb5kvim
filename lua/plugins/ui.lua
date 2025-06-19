@@ -89,4 +89,32 @@ return {
             require("dropbar").setup({})
         end,
     },
+    {
+        "hlchunk.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        for_cat = "general.ui",
+        after = function()
+            require("hlchunk").setup({
+                chunk = {
+                    enable = true,
+                    chars = {
+                        horizontal_line = "─",
+                        vertical_line = "│",
+                        left_top = "╭",
+                        left_bottom = "╰",
+                        right_arrow = "─",
+                    },
+                },
+                indent = {
+                    enable = true,
+                    chars = {
+                        "│",
+                    },
+                    style = {
+                        vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
+                    },
+                },
+            })
+        end,
+    },
 }

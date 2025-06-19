@@ -20,7 +20,6 @@ vim.keymap.set("n", "<leader>bp", "<cmd>bp<CR>")
 
 vim.keymap.set("n", "<leader>st", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>px", "<cmd>!chmod +x %<CR>")
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
 
 -- vim.keymap.set("n", "zR", require("ufo").openAllFolds)
 -- vim.keymap.set("n", "zM", require("ufo").closeAllFolds)

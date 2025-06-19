@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
-
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
@@ -67,8 +66,8 @@
               go-tools
               go
               golangci-lint
+              golint
             ];
-
             nix = with pkgs; [
               nil
               nixd
@@ -97,11 +96,11 @@
           };
 
           startupPlugins = {
-            gitPlugins = with pkgs.neovimPlugins; [ ];
+            gitPlugins = with pkgs.neovimPlugins; [
+            ];
             general = with pkgs.vimPlugins; [
               lze
               lzextras
-              snacks-nvim
               promise-async # required by ufo
               tokyonight-nvim
               lsp-progress-nvim
@@ -109,19 +108,22 @@
           };
 
           optionalPlugins = {
-            gitPlugins = with pkgs.neovimPlugins; [ ];
+            gitPlugins = with pkgs.neovimPlugins; [
+            ];
             general = with pkgs.vimPlugins; {
               blink = [
                 blink-cmp
                 colorful-menu-nvim
               ];
               core = [
+                fzf-lua
                 oil-nvim
                 nvim-ufo
                 nvim-lint
                 otter-nvim
                 conform-nvim
                 grapple-nvim
+                guess-indent-nvim
                 nvim-treesitter-textobjects
                 nvim-treesitter.withAllGrammars
               ];
@@ -132,11 +134,9 @@
               ui = [
                 mini-icons
                 lualine-nvim
+                hlchunk-nvim
                 dropbar-nvim
                 eyeliner-nvim
-              ];
-              flex = [
-                cord-nvim
               ];
             };
             extras = with pkgs.vimPlugins; {

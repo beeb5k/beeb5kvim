@@ -20,7 +20,7 @@ require("tokyonight").setup({
     },
     on_highlights = function(hl, c)
         hl.CursorLineNr = {
-            fg = c.purple, -- or any hex: "#fab387"
+            fg = c.purple,
             bold = false,
         }
     end,
