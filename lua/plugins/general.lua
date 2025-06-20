@@ -182,6 +182,9 @@ return {
                     },
                 },
             })
+
+            fzf.register_ui_select()
+
             -- 🔹 Global keymaps (normal mode)
             vim.keymap.set("n", "<leader><space>", function()
                 local is_git = vim.fn.system("git rev-parse --is-inside-work-tree 2>/dev/null"):match("true")
