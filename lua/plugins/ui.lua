@@ -40,7 +40,7 @@ return {
                         icons_enabled = true, -- optional: to match default vim
                     },
                     sections = {
-                        lualine_a = { "filename" },
+                        lualine_a = { "mode", "filename" },
                         lualine_b = { "branch" },
                         lualine_c = {
                             function()
@@ -48,6 +48,11 @@ return {
                             end,
                         },
                         lualine_x = {
+                            {
+                                require("noice").api.statusline.mode.get,
+                                cond = require("noice").api.statusline.mode.has,
+                                color = { fg = "#ff9e64" },
+                            },
                             {
                                 "diagnostics",
                                 sources = { "nvim_diagnostic" },
@@ -115,6 +120,35 @@ return {
                     },
                 },
             })
+        end,
+    },
+    {
+        "noice.nvim",
+        event = { "DeferredUIEnter" },
+        dep_of = { "lualine.nvim" },
+        after = function()
+            require("noice").setup({
+                lsp = {
+                    override = {
+                        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+                        ["vim.lsp.util.stylize_markdown"] = true,
+                    },
+                },
+                presets = {
+                    bottom_search = false, -- use a classic bottom cmdline for search
+                    command_palette = false, -- position the cmdline and popupmenu together
+                    long_message_to_split = true, -- long messages will be sent to a split
+                    inc_rename = false, -- enables an input dialog for inc-rename.nvim
+                    lsp_doc_border = true, -- add a border to hover docs and signature help
+                },
+            })
+        end,
+    },
+    {
+        "nvim-notify",
+        event = { "DeferredUIEnter" },
+        after = function()
+            vim.notify = require("notify")
         end,
     },
 }

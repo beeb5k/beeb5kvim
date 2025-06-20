@@ -132,7 +132,9 @@
                 gitsigns-nvim
               ];
               ui = [
+                noice-nvim
                 mini-icons
+                nvim-notify
                 lualine-nvim
                 hlchunk-nvim
                 dropbar-nvim
