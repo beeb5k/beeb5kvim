@@ -112,6 +112,8 @@
             ];
             general = with pkgs.vimPlugins; {
               blink = [
+                luasnip
+                friendly-snippets
                 blink-cmp
                 colorful-menu-nvim
               ];

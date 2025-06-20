@@ -40,7 +40,14 @@ return {
                         icons_enabled = true, -- optional: to match default vim
                     },
                     sections = {
-                        lualine_a = { "mode", "filename" },
+                        lualine_a = {
+                            {
+                                require("noice").api.statusline.mode.get,
+                                cond = require("noice").api.statusline.mode.has,
+                                color = { fg = "#ff9e64" },
+                            },
+                            "filename",
+                        },
                         lualine_b = { "branch" },
                         lualine_c = {
                             function()
@@ -48,11 +55,6 @@ return {
                             end,
                         },
                         lualine_x = {
-                            {
-                                require("noice").api.statusline.mode.get,
-                                cond = require("noice").api.statusline.mode.has,
-                                color = { fg = "#ff9e64" },
-                            },
                             {
                                 "diagnostics",
                                 sources = { "nvim_diagnostic" },
