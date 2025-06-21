@@ -78,6 +78,11 @@
               lua-language-server
             ];
 
+            python = with pkgs; [
+              ruff
+              pyright
+            ];
+
             clang = with pkgs; [
               cmake
               valgrind
@@ -200,6 +205,7 @@
               web = true;
               go = true;
               clang = true;
+              python = true;
               extras = true;
               general = true;
               markdown = true;

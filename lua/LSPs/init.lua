@@ -14,6 +14,7 @@ vim.lsp.enable({
     "harper",
     "bashls",
     "gopls",
+    "pyright",
 })
 
 vim.lsp.inlay_hint.enable(true)
@@ -89,6 +90,23 @@ vim.lsp.config("nixd", {
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.diagnosticProvider = false
     end,
+})
+
+vim.lsp.config("pyright", {
+    cmd = { "pyright-langserver", "--stdio" },
+    filetypes = { "python" },
+    root_markers = { "pyrefly.toml", "pyproject.toml" },
+    settings = {
+        python = {
+            analysis = {
+                typeCheckingMode = "basic",
+                autoImportCompletions = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "workspace",
+                autoSearchPaths = true,
+            },
+        },
+    },
 })
 
 vim.lsp.config("clangd", {

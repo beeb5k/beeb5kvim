@@ -21,7 +21,7 @@ return {
                     nix = { "nixfmt" },
                     go = { "gofmt" },
                     rust = { "rustfmt", lsp_format = "fallback" },
-                    python = { "isort", "black" },
+                    python = { "ruff_organize_imports", "ruff_format" },
                     c = { "clang-format" },
                     cpp = { "clang-format" },
                     cmake = { "cmake-format" },
@@ -51,6 +51,7 @@ return {
                 go = { "golangcilint" },
                 javascript = { "eslint" },
                 typescript = { "eslint" },
+                python = { "ruff" },
             }
 
             vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "InsertLeave" }, {
