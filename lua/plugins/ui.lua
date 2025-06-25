@@ -11,11 +11,7 @@ return {
         "lualine.nvim",
         event = { "DeferredUIEnter" },
         for_cat = "general.ui",
-        load = function(name)
-            require("lzextras").loaders.multi({ name, "lsp-progress" })
-        end,
         after = function(_)
-            require("lsp-progress").setup()
             require("lualine").setup({
                 require("lualine").setup({
                     options = {
@@ -49,11 +45,7 @@ return {
                             "filename",
                         },
                         lualine_b = { "branch" },
-                        lualine_c = {
-                            function()
-                                return require("lsp-progress").progress()
-                            end,
-                        },
+                        lualine_c = {},
                         lualine_x = {
                             {
                                 "diagnostics",
@@ -68,12 +60,6 @@ return {
                         lualine_z = { "location" },
                     },
                 }),
-            })
-            vim.api.nvim_create_augroup("lualine_augroup", { clear = true })
-            vim.api.nvim_create_autocmd("User", {
-                group = "lualine_augroup",
-                pattern = "LspProgressStatusUpdated",
-                callback = require("lualine").refresh,
             })
         end,
     },

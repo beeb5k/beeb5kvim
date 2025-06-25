@@ -108,7 +108,6 @@
               lzextras
               promise-async # required by ufo
               tokyonight-nvim
-              lsp-progress-nvim
             ];
           };
 

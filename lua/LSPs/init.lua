@@ -35,9 +35,9 @@ end, { desc = "Show diagnostics for current line" })
 
 vim.diagnostic.config({
     update_in_insert = true,
-    -- virtual_text = {
-    --     current_line = true,
-    -- },
+    virtual_text = {
+        current_line = true,
+    },
     -- virtual_lines = {
     --     current_line = true,
     -- },
