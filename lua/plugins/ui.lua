@@ -37,11 +37,6 @@ return {
                     },
                     sections = {
                         lualine_a = {
-                            {
-                                require("noice").api.statusline.mode.get,
-                                cond = require("noice").api.statusline.mode.has,
-                                color = { fg = "#ff9e64" },
-                            },
                             "filename",
                         },
                         lualine_b = { "branch" },
@@ -75,14 +70,6 @@ return {
         end,
     },
     {
-        "dropbar.nvim",
-        event = { "DeferredUIEnter" },
-        for_cat = "general.ui",
-        after = function(_)
-            require("dropbar").setup({})
-        end,
-    },
-    {
         "hlchunk.nvim",
         event = { "BufReadPre", "BufNewFile" },
         for_cat = "general.ui",
@@ -108,35 +95,6 @@ return {
                     },
                 },
             })
-        end,
-    },
-    {
-        "noice.nvim",
-        event = { "DeferredUIEnter" },
-        dep_of = { "lualine.nvim" },
-        after = function()
-            require("noice").setup({
-                lsp = {
-                    override = {
-                        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-                        ["vim.lsp.util.stylize_markdown"] = true,
-                    },
-                },
-                presets = {
-                    bottom_search = false, -- use a classic bottom cmdline for search
-                    command_palette = false, -- position the cmdline and popupmenu together
-                    long_message_to_split = true, -- long messages will be sent to a split
-                    inc_rename = false, -- enables an input dialog for inc-rename.nvim
-                    lsp_doc_border = true, -- add a border to hover docs and signature help
-                },
-            })
-        end,
-    },
-    {
-        "nvim-notify",
-        event = { "DeferredUIEnter" },
-        after = function()
-            vim.notify = require("notify")
         end,
     },
 }
