@@ -65,10 +65,10 @@ vim.lsp.config("harper", {
     filetypes = { "markdown", "text", "gitcommit" },
 })
 
-vim.lsp.config.bashls = {
+vim.lsp.config("bashls", {
     cmd = { "bash-language-server", "start" },
     filetypes = { "bash", "sh" },
-}
+})
 
 vim.lsp.config("nil_ls", {
     cmd = { "nil" },
