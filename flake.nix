@@ -151,11 +151,6 @@
                 nvim-ts-autotag
                 ultimate-autopair-nvim
               ];
-              markdown = [
-                obsidian-nvim
-                render-markdown-nvim
-                markdown-preview-nvim
-              ];
             };
           };
 
