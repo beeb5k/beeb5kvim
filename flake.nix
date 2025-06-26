@@ -93,7 +93,7 @@
 
             web = with pkgs; [
               eslint
-              prettier
+              prettierd
               typescript-language-server
               tailwindcss-language-server
               vscode-langservers-extracted

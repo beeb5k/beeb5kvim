@@ -25,6 +25,8 @@ return {
                     c = { "clang-format" },
                     cpp = { "clang-format" },
                     cmake = { "cmake-format" },
+                    typescript = { "prettierd" },
+                    javascript = { "prettierd" },
                 },
             })
 
