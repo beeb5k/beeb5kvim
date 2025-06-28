@@ -93,7 +93,6 @@
 
             web = with pkgs; [
               eslint
-              nodejs
               prettierd
               typescript-language-server
               tailwindcss-language-server
