@@ -255,7 +255,7 @@ return {
                     "prompt",
                 },
                 on_tab_options = {
-                    ["expandtab"] = false,
+                    ["expandtab"] = true,
                 },
                 on_space_options = {
                     ["expandtab"] = true,
