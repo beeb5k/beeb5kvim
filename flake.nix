@@ -95,7 +95,7 @@
               eslint
               prettierd
               typescript-language-server
-              tailwindcss-language-server
+              # tailwindcss-language-server
               vscode-langservers-extracted
             ];
           };
