@@ -11,15 +11,15 @@ vim.lsp.config("tsserver", {
     root_markers = { "package.json", "tsconfig.json", "jsconfig.json" },
 
     init_options = {
-        preferences = {
-            includeInlayParameterNameHints = "all", -- or "literals" / "none"
-            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-            includeInlayFunctionParameterTypeHints = false,
-            includeInlayVariableTypeHints = false,
-            includeInlayPropertyDeclarationTypeHints = false,
-            includeInlayFunctionLikeReturnTypeHints = false,
-            includeInlayEnumMemberValueHints = true,
-        },
+        -- preferences = {
+        --     includeInlayParameterNameHints = "all", -- or "literals" / "none"
+        --     includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        --     includeInlayFunctionParameterTypeHints = false,
+        --     includeInlayVariableTypeHints = false,
+        --     includeInlayPropertyDeclarationTypeHints = false,
+        --     includeInlayFunctionLikeReturnTypeHints = false,
+        --     includeInlayEnumMemberValueHints = true,
+        -- },
     },
 })
 
