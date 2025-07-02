@@ -48,7 +48,7 @@ return {
                     nerd_font_variant = "mono",
                 },
                 signature = {
-                    enabled = false,
+                    enabled = true,
                     window = {
                         show_documentation = true,
                     },

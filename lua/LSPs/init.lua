@@ -25,23 +25,12 @@ local diagnostic_float_opts = {
     close_events = { "BufLeave", "CursorMoved", "InsertCharPre" },
     source = "if_many",
     severity_sort = true,
-    -- max_width = 80,
-    -- max_height = 10,
+    max_width = 90,
 }
 
 vim.keymap.set("n", "<C-l>", function()
     vim.diagnostic.open_float(diagnostic_float_opts)
 end, { desc = "Show diagnostics for current line" })
-
-vim.diagnostic.config({
-    update_in_insert = true,
-    virtual_text = {
-        current_line = true,
-    },
-    -- virtual_lines = {
-    --     current_line = true,
-    -- },
-})
 
 vim.lsp.config("*", {
     capabilities = {
