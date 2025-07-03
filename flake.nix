@@ -106,6 +106,7 @@
             general = with pkgs.vimPlugins; [
               lze
               lzextras
+              snacks-nvim
               promise-async # required by ufo
               tokyonight-nvim
             ];
@@ -122,11 +123,10 @@
                 colorful-menu-nvim
               ];
               core = [
-                fzf-lua
                 oil-nvim
                 nvim-ufo
                 nvim-lint
-                otter-nvim
+                # otter-nvim
                 conform-nvim
                 grapple-nvim
                 guess-indent-nvim
