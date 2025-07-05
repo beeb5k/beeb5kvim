@@ -99,9 +99,9 @@ return {
         "nvim-ufo",
         event = { "DeferredUIEnter" },
         for_cat = "general.core",
-        -- load = function(name)
-        --     require("lzextras").loaders.multi({ name, "promise-async" })
-        -- end,
+        load = function(name)
+            require("lzextras").loaders.multi({ name, "promise-async" })
+        end,
 
         after = function()
             require("ufo").setup({
@@ -110,6 +110,53 @@ return {
                 end,
             })
         end,
+    },
+    {
+        "flash.nvim",
+        event = { "DeferredUIEnter" },
+        for_cat = "general.core",
+        keys = {
+            {
+                "<leader>s",
+                mode = { "n", "x", "o" },
+                function()
+                    require("flash").jump()
+                end,
+                desc = "Flash",
+            },
+            {
+                "<leader>S",
+                mode = { "n", "x", "o" },
+                function()
+                    require("flash").treesitter()
+                end,
+                desc = "Flash Treesitter",
+            },
+            {
+                "<leader>r",
+                mode = "o",
+                function()
+                    require("flash").remote()
+                end,
+                desc = "Remote Flash",
+            },
+            {
+                "<leader>R",
+                mode = { "o", "x" },
+                function()
+                    require("flash").treesitter_search()
+                end,
+                desc = "Treesitter Search",
+            },
+            {
+                "<c-s>",
+                -- mode = { "c" },
+                function()
+                    require("flash").toggle()
+                end,
+                desc = "Toggle Flash Search",
+            },
+        },
     },
     -- {
     --     "otter.nvim",
@@ -271,4 +318,14 @@ return {
     --         })
     --     end,
     -- },
+    {
+        "undotree",
+        for_cat = "general.core",
+        cmd = { "UndotreeToggle", "UndotreeHide", "UndotreeShow", "UndotreeFocus", "UndotreePersistUndo" },
+        keys = { { "<leader>U", "<cmd>UndotreeToggle<CR>", mode = { "n" }, desc = "Undo Tree" } },
+        before = function(_)
+            vim.g.undotree_WindowLayout = 1
+            vim.g.undotree_SplitWidth = 40
+        end,
+    },
 }

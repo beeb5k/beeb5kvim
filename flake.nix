@@ -125,6 +125,7 @@
               core = [
                 oil-nvim
                 nvim-ufo
+                undotree
                 nvim-lint
                 vim-sleuth
                 # otter-nvim
