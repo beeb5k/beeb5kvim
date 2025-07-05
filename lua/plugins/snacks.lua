@@ -8,7 +8,7 @@ return {
     {
         "snacks.nvim",
         for_cat = "general",
-        event = { "DeferredUIEnter" },
+        event = { "VimEnter" },
         load = function() end,
         keys = {
             {

@@ -237,33 +237,38 @@ return {
     --     end,
     -- },
     {
-        "guess-indent.nvim",
-        event = { "DeferredUIEnter" },
+        "vim-sleuth",
         for_cat = "general.core",
-        after = function()
-            require("guess-indent").setup({
-                auto_cmd = true,
-                override_editorconfig = false,
-                filetype_exclude = {
-                    "netrw",
-                    "tutor",
-                },
-                buftype_exclude = {
-                    "help",
-                    "nofile",
-                    "terminal",
-                    "prompt",
-                },
-                on_tab_options = {
-                    ["expandtab"] = true,
-                },
-                on_space_options = {
-                    ["expandtab"] = true,
-                    ["tabstop"] = "detected",
-                    ["softtabstop"] = "detected",
-                    ["shiftwidth"] = "detected",
-                },
-            })
-        end,
+        event = "DeferredUIEnter",
     },
+    -- {
+    --     "guess-indent.nvim",
+    --     event = { "DeferredUIEnter" },
+    --     for_cat = "general.core",
+    --     after = function()
+    --         require("guess-indent").setup({
+    --             auto_cmd = true,
+    --             override_editorconfig = false,
+    --             filetype_exclude = {
+    --                 "netrw",
+    --                 "tutor",
+    --             },
+    --             buftype_exclude = {
+    --                 "help",
+    --                 "nofile",
+    --                 "terminal",
+    --                 "prompt",
+    --             },
+    --             on_tab_options = {
+    --                 ["expandtab"] = true,
+    --             },
+    --             on_space_options = {
+    --                 ["expandtab"] = true,
+    --                 ["tabstop"] = "detected",
+    --                 ["softtabstop"] = "detected",
+    --                 ["shiftwidth"] = "detected",
+    --             },
+    --         })
+    --     end,
+    -- },
 }

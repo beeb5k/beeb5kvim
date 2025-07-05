@@ -126,10 +126,11 @@
                 oil-nvim
                 nvim-ufo
                 nvim-lint
+                vim-sleuth
                 # otter-nvim
                 conform-nvim
                 grapple-nvim
-                guess-indent-nvim
+                # guess-indent-nvim
                 nvim-treesitter-textobjects
                 nvim-treesitter.withAllGrammars
               ];
