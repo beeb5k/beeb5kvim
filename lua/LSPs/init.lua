@@ -15,6 +15,7 @@ vim.lsp.enable({
     "bashls",
     "gopls",
     "pyright",
+    "jdtls",
 })
 
 vim.lsp.inlay_hint.enable(true)
@@ -52,6 +53,10 @@ vim.lsp.config("marksman", {
 vim.lsp.config("harper", {
     cmd = { "harper-ls", "--stdio" },
     filetypes = { "markdown", "text", "gitcommit" },
+})
+
+vim.lsp.config("jdtls", {
+    filetypes = { "java" },
 })
 
 vim.lsp.config("bashls", {
@@ -161,7 +166,7 @@ vim.lsp.config("lua_ls", {
                 checkThirdParty = false,
                 library = {
                     -- '${3rd}/luv/library',
-                    -- unpack(vim.api.nvim_get_runtime_file("", true)),
+                    unpack(vim.api.nvim_get_runtime_file("", true)),
                 },
             },
             completion = {

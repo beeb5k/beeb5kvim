@@ -73,7 +73,9 @@
               nixd
               nixfmt-rfc-style
             ];
-
+            java = with pkgs; [
+              jdt-language-server
+            ];
             lua = with pkgs; [
               lua-language-server
             ];
@@ -134,6 +136,9 @@
                 # guess-indent-nvim
                 nvim-treesitter-textobjects
                 nvim-treesitter.withAllGrammars
+              ];
+              java = [
+                nvim-jdtls
               ];
               git = [
                 neogit
@@ -197,6 +202,7 @@
               lua = true;
               web = true;
               go = true;
+              java = true;
               clang = true;
               python = true;
               extras = true;

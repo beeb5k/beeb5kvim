@@ -38,7 +38,7 @@ vim.lsp.config("html", {
 })
 
 vim.lsp.config("jsonls", {
-    cmd = { "vscode-json-languageserver", "--stdio" },
+    cmd = { "vscode-json-language-server", "--stdio" },
     filetypes = { "json", "jsonc" },
     settings = {
         json = {
