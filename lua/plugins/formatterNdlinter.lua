@@ -10,6 +10,10 @@ return {
         after = function()
             local conform = require("conform")
 
+            conform.formatters["google-java-format"] = {
+                prepend_args = { "--aosp" },
+            }
+
             conform.setup({
                 format_on_save = {
                     lsp_fallback = true,
@@ -22,6 +26,7 @@ return {
                     go = { "gofmt" },
                     rust = { "rustfmt", lsp_format = "fallback" },
                     python = { "ruff_organize_imports", "ruff_format" },
+                    java = { "google-java-format" },
                     c = { "clang-format" },
                     cpp = { "clang-format" },
                     cmake = { "cmake-format" },

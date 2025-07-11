@@ -101,6 +101,7 @@ return {
             { "gr", pickpick("lsp_references"), nowait = true, desc = "References" },
             { "gI", pickpick("lsp_implementations"), desc = "Goto Implementation" },
             { "gy", pickpick("lsp_type_definitions"), desc = "Goto T[y]pe Definition" },
+            -- { "<leader>ca", vim.lsp.buf.code_action(), desc = "Lsp code actiona" },
             { "<leader>ds", pickpick("lsp_symbols"), desc = "LSP Symbols" },
             { "<leader>ws", pickpick("lsp_workspace_symbols"), desc = "LSP Workspace Symbols" },
         },

@@ -75,6 +75,7 @@
             ];
             java = with pkgs; [
               jdt-language-server
+              google-java-format
             ];
             lua = with pkgs; [
               lua-language-server
@@ -111,6 +112,7 @@
               snacks-nvim
               promise-async # required by ufo
               tokyonight-nvim
+              kanagawa-nvim
             ];
           };
 
