@@ -50,8 +50,8 @@
         {
           lspsAndRuntimeDeps = {
             general = with pkgs; [
-              rust-analyzer
-              bash-language-server
+              # rust-analyzer
+              # bash-language-server
             ];
 
             markdown = with pkgs; [
@@ -79,6 +79,7 @@
             ];
             lua = with pkgs; [
               lua-language-server
+              stylua
             ];
 
             python = with pkgs; [
