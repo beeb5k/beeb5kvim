@@ -8,7 +8,7 @@ vim.lsp.enable({
     "html",
     "jsonls",
     "cssls",
-    -- "tailwindcss",
+    "tailwindcss",
     "tsserver",
     "marksman",
     "harper",
