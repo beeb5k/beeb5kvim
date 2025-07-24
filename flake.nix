@@ -114,6 +114,7 @@
               promise-async # required by ufo
               tokyonight-nvim
               kanagawa-nvim
+              catppuccin-nvim
             ];
           };
 
