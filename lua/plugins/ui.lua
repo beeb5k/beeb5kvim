@@ -66,6 +66,8 @@ return {
             require("eyeliner").setup({
                 highlight_on_key = true,
                 dim = true,
+                disabled_filetype = { "NeogitStatus", "help" },
+                disabled_buftypes = { "nofile" },
             })
         end,
     },
