@@ -106,15 +106,37 @@ if vim.g.vscode == nil then
                 },
             },
         },
-        overrides = function(colors) -- add/modify highlights
-            return {}
+        overrides = function(colors)
+            local theme = colors.theme
+            return {
+                NormalFloat = { bg = "none" },
+                FloatBorder = { bg = "none" },
+                FloatTitle = { bg = "none" },
+                LineNr = { bg = "none" },
+                CursorLineNr = { bg = "none", fg = theme.syn.constant },
+                StatusColumn = { bg = "none" },
+
+                NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
+                LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+                MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+
+                Pmenu = { bg = "none", fg = theme.ui.shade0 },
+                PmenuSel = { bg = theme.ui.bg_p1, fg = theme.ui.fg },
+                PmenuBorder = { bg = "none", fg = theme.ui.fg },
+
+                -- BlinkCmpMenu = { bg = "none", fg = theme.ui.shade0 },
+                BlinkCmpMenuBorder = { bg = "none", fg = theme.ui.shade0 },
+                -- BlinkCmpMenuSelection = { bg = "none", fg = theme.ui.fg },
+                -- BlinkCmpScrollBarThumb = { bg = "none", fg = theme.ui.fg },
+                -- BlinkCmpScrollBarGutter = { bg = "none", fg = theme.ui.fg_dim },
+            }
         end,
-        theme = "dragon", -- Load "wave" theme
+        theme = "wave", -- Load "wave" theme
         background = { -- map the value of 'background' option to a theme
-            dark = "dragon", -- try "dragon" !
+            dark = "wave", -- try "dragon" !
             light = "lotus",
         },
     })
 
-    vim.cmd([[colorscheme catppuccin]])
+    vim.cmd([[colorscheme kanagawa]])
 end
