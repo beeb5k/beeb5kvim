@@ -25,7 +25,11 @@ return {
                     nix = { "nixfmt" },
                     go = { "gofmt" },
                     rust = { "rustfmt", lsp_format = "fallback" },
-                    python = { "ruff_organize_imports", "ruff_format" },
+                    python = {
+                        "ruff_fix",
+                        "ruff_format",
+                        "ruff_organize_imports",
+                    },
                     java = { "google-java-format" },
                     c = { "clang-format" },
                     cpp = { "clang-format" },

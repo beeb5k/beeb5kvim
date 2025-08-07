@@ -5,17 +5,17 @@ vim.lsp.enable({
     "rust_analyzer",
     "nil_ls",
     "nixd",
-    "html",
-    "jsonls",
-    "cssls",
-    "tailwindcss",
+    -- "html",
+    -- "jsonls",
+    -- "cssls",
+    -- "tailwindcss",
     "tsserver",
     "marksman",
     "harper",
     "bashls",
     "gopls",
-    "pyright",
-    "jdtls",
+    "pyrefly",
+    -- "jdtls",
 })
 
 vim.lsp.inlay_hint.enable(true)
@@ -86,19 +86,13 @@ vim.lsp.config("nixd", {
     end,
 })
 
-vim.lsp.config("pyright", {
-    cmd = { "pyright-langserver", "--stdio" },
+vim.lsp.config("pyrefly", {
+    cmd = { "pyrefly", "lsp" },
     filetypes = { "python" },
     root_markers = { "pyrefly.toml", "pyproject.toml" },
     settings = {
-        python = {
-            analysis = {
-                typeCheckingMode = "basic",
-                autoImportCompletions = true,
-                useLibraryCodeForTypes = true,
-                diagnosticMode = "workspace",
-                autoSearchPaths = true,
-            },
+        pyrefly = {
+            inlayHints = true,
         },
     },
 })

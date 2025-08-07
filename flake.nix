@@ -84,7 +84,7 @@
 
             python = with pkgs; [
               ruff
-              pyright
+              pyrefly
             ];
 
             clang = with pkgs; [
@@ -99,8 +99,6 @@
               eslint
               prettierd
               typescript-language-server
-              tailwindcss-language-server
-              vscode-langservers-extracted
             ];
           };
 
@@ -137,7 +135,6 @@
                 # otter-nvim
                 conform-nvim
                 grapple-nvim
-                # guess-indent-nvim
                 nvim-treesitter-textobjects
                 nvim-treesitter.withAllGrammars
               ];
@@ -206,7 +203,7 @@
               lua = true;
               web = true;
               go = true;
-              java = true;
+              java = false;
               clang = true;
               python = true;
               extras = true;
