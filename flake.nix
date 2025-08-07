@@ -205,7 +205,7 @@
               go = true;
               java = false;
               clang = true;
-              python = true;
+              python = false;
               extras = true;
               general = true;
               markdown = true;
