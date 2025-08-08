@@ -5,10 +5,6 @@ vim.lsp.enable({
     "rust_analyzer",
     "nil_ls",
     "nixd",
-    -- "html",
-    -- "jsonls",
-    -- "cssls",
-    -- "tailwindcss",
     "tsserver",
     "marksman",
     "harper",
@@ -181,20 +177,25 @@ vim.lsp.config("rust_analyzer", {
         ["rust-analyzer"] = {
             inlayHints = {
                 enable = true,
-                -- bindingModeHints = { enable = true },
-                -- chainingHints = { enable = true },
-                -- closingBraceHints = { enable = true },
-                -- closureCaptureHints = { enable = true },
-                -- closureReturnTypeHints = { enable = "always" },
-                -- lifetimeElisionHints = { enable = "skip_trivial" },
-                -- parameterHints = { enable = true },
-                -- typeHints = { enable = true },
+                -- chainingHints = true,
+                -- parameterHints = true,
+                -- typeHints = true,
+                -- closingBraceHints = true,
+                -- lifetimeElisionHints = {
+                --     enable = "always",
+                --     useParameterNames = true,
+                -- },
+                -- bindingModeHints = true,
+                -- reborrowHints = true,
+                -- closureReturnTypeHints = {
+                --     enable = "always",
+                -- },
             },
             cargo = {
                 features = "all",
             },
             check = {
-                command = "check",
+                command = "clippy",
             },
             diagnostics = {
                 enable = true,

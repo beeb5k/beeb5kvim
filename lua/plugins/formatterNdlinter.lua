@@ -56,7 +56,7 @@ return {
         for_cats = "general.core",
         after = function(_)
             require("lint").linters_by_ft = {
-                rust = { "clippy" },
+                -- rust = { "clippy" },
                 c = { "clangtidy" },
                 cpp = { "clangtidy" },
                 go = { "golangcilint" },
