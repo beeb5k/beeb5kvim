@@ -8,53 +8,61 @@ return {
         end,
     },
     {
+        "tiny-inline-diagnostic.nvim",
+        event = { "DeferredUIEnter" },
+        for_cat = "general.ui",
+        after = function()
+            require("tiny-inline-diagnostic").setup({
+                preset = "ghost",
+            })
+        end,
+    },
+    {
         "lualine.nvim",
         event = { "DeferredUIEnter" },
         for_cat = "general.ui",
         after = function(_)
             require("lualine").setup({
-                require("lualine").setup({
-                    options = {
-                        theme = {
-                            normal = {
-                                a = { fg = "NONE", bg = "NONE" },
-                                b = { fg = "NONE", bg = "NONE" },
-                                c = { fg = "NONE", bg = "NONE" },
-                            },
-                            insert = { a = { fg = "NONE", bg = "NONE" } },
-                            visual = { a = { fg = "NONE", bg = "NONE" } },
-                            replace = { a = { fg = "NONE", bg = "NONE" } },
-                            command = { a = { fg = "NONE", bg = "NONE" } },
-                            inactive = {
-                                a = { fg = "NONE", bg = "NONE" },
-                                b = { fg = "NONE", bg = "NONE" },
-                                c = { fg = "NONE", bg = "NONE" },
-                            },
+                options = {
+                    theme = {
+                        normal = {
+                            a = { fg = "NONE", bg = "NONE" },
+                            b = { fg = "NONE", bg = "NONE" },
+                            c = { fg = "NONE", bg = "NONE" },
                         },
-                        section_separators = "",
-                        component_separators = "",
-                        icons_enabled = true, -- optional: to match default vim
+                        insert = { a = { fg = "NONE", bg = "NONE" } },
+                        visual = { a = { fg = "NONE", bg = "NONE" } },
+                        replace = { a = { fg = "NONE", bg = "NONE" } },
+                        command = { a = { fg = "NONE", bg = "NONE" } },
+                        inactive = {
+                            a = { fg = "NONE", bg = "NONE" },
+                            b = { fg = "NONE", bg = "NONE" },
+                            c = { fg = "NONE", bg = "NONE" },
+                        },
                     },
-                    sections = {
-                        lualine_a = {
-                            "filename",
-                        },
-                        lualine_b = { "branch" },
-                        lualine_c = {},
-                        lualine_x = {
-                            {
-                                "diagnostics",
-                                sources = { "nvim_diagnostic" },
-                                sections = { "error", "warn", "info", "hint" },
-                                symbols = { error = " ", warn = " ", info = "󰋼 ", hint = " " },
-                                colored = false,
-                                update_in_insert = false,
-                            },
-                        },
-                        lualine_y = { "filetype", "progress" },
-                        lualine_z = { "location" },
+                    section_separators = "",
+                    component_separators = "",
+                    icons_enabled = true, -- optional: to match default vim
+                },
+                sections = {
+                    lualine_a = {
+                        "filename",
                     },
-                }),
+                    lualine_b = { "branch" },
+                    lualine_c = {},
+                    lualine_x = {
+                        {
+                            "diagnostics",
+                            sources = { "nvim_diagnostic" },
+                            sections = { "error", "warn", "info", "hint" },
+                            symbols = { error = " ", warn = " ", info = "󰋼 ", hint = " " },
+                            colored = false,
+                            update_in_insert = false,
+                        },
+                    },
+                    lualine_y = { "filetype", "progress" },
+                    lualine_z = { "location" },
+                },
             })
         end,
     },

@@ -181,14 +181,14 @@ vim.lsp.config("rust_analyzer", {
         ["rust-analyzer"] = {
             inlayHints = {
                 enable = true,
-                bindingModeHints = { enable = true },
-                chainingHints = { enable = true },
-                closingBraceHints = { enable = true },
-                closureCaptureHints = { enable = true },
-                closureReturnTypeHints = { enable = "always" },
-                lifetimeElisionHints = { enable = "skip_trivial" },
-                parameterHints = { enable = true },
-                typeHints = { enable = true },
+                -- bindingModeHints = { enable = true },
+                -- chainingHints = { enable = true },
+                -- closingBraceHints = { enable = true },
+                -- closureCaptureHints = { enable = true },
+                -- closureReturnTypeHints = { enable = "always" },
+                -- lifetimeElisionHints = { enable = "skip_trivial" },
+                -- parameterHints = { enable = true },
+                -- typeHints = { enable = true },
             },
             cargo = {
                 features = "all",

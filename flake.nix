@@ -50,7 +50,7 @@
         {
           lspsAndRuntimeDeps = {
             general = with pkgs; [
-              # rust-analyzer
+              rust-analyzer
               # bash-language-server
             ];
 
@@ -150,6 +150,7 @@
                 lualine-nvim
                 hlchunk-nvim
                 eyeliner-nvim
+                tiny-inline-diagnostic-nvim
               ];
             };
             extras = with pkgs.vimPlugins; {
