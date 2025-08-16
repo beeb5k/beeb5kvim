@@ -11,6 +11,7 @@ vim.lsp.enable({
     "bashls",
     "gopls",
     "pyrefly",
+    "qmlls",
     -- "jdtls",
 })
 
@@ -49,6 +50,12 @@ vim.lsp.config("marksman", {
 vim.lsp.config("harper", {
     cmd = { "harper-ls", "--stdio" },
     filetypes = { "markdown", "text", "gitcommit" },
+})
+
+vim.lsp.config("qmlls", {
+    cmd = { "qmlls" },
+    filetypes = { "qml" },
+    root_markers = { ".qmlls.ini" },
 })
 
 vim.lsp.config("jdtls", {
