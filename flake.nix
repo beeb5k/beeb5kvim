@@ -203,13 +203,13 @@
               nix = true;
               lua = true;
               web = true;
-              go = true;
+              go = false;
               java = false;
               clang = true;
               python = false;
               extras = true;
               general = true;
-              markdown = true;
+              markdown = false;
               gitplugins = true;
             };
           };
