@@ -84,6 +84,7 @@ return {
                         left_bottom = "╰",
                         right_arrow = "─",
                     },
+                    error_sign = false,
                 },
                 indent = {
                     enable = true,
