@@ -14,12 +14,16 @@ in
 {
   lspsAndRuntimeDeps = {
     general = with pkgs; [
+      fd
+      ripgrep
+    ];
+
+    rust = with pkgs; [
       rust-analyzer
       cargo
       rustc
       clippy
       rustfmt
-      # bash-language-server
     ];
 
     markdown = with pkgs; [
@@ -36,15 +40,17 @@ in
       golangci-lint
       golint
     ];
+
     nix = with pkgs; [
-      nil
       nixd
       nixfmt-rfc-style
     ];
+
     java = with pkgs; [
       jdt-language-server
       google-java-format
     ];
+
     lua = with pkgs; [
       lua-language-server
       stylua
@@ -63,7 +69,7 @@ in
       cmake-language-server
     ];
 
-    web = with pkgs; [
+    javascript = with pkgs; [
       eslint
       prettierd
       typescript-language-server
@@ -71,62 +77,61 @@ in
   };
 
   startupPlugins = {
-    gitPlugins = with pkgs.neovimPlugins; [
+    theme = with pkgs.vimPlugins; [
+      tokyonight-nvim
+      kanagawa-nvim
+      catppuccin-nvim
     ];
+
     general = with pkgs.vimPlugins; [
       lze
       lzextras
       snacks-nvim
       promise-async # required by ufo
-      tokyonight-nvim
-      kanagawa-nvim
-      catppuccin-nvim
     ];
   };
 
-  optionalPlugins = {
-    gitPlugins = with pkgs.neovimPlugins; [
+  optionalPlugins = with pkgs.vimPlugins; {
+    java = [
+      nvim-jdtls
     ];
-    general = with pkgs.vimPlugins; {
-      blink = [
-        luasnip
-        friendly-snippets
-        blink-cmp
-        colorful-menu-nvim
-      ];
-      core = [
-        oil-nvim
-        nvim-ufo
-        undotree
-        nvim-lint
-        vim-sleuth
-        conform-nvim
-        grapple-nvim
-        nvim-treesitter-textobjects
-        nvim-treesitter.withAllGrammars
-      ];
-      # java = [
-      #   nvim-jdtls
-      # ];
-      git = [
-        neogit
-        gitsigns-nvim
-      ];
-      ui = [
-        mini-icons
-        lualine-nvim
-        hlchunk-nvim
-        eyeliner-nvim
-        # tiny-inline-diagnostic-nvim
-      ];
-    };
-    extras = with pkgs.vimPlugins; {
-      core = [
-        tabout-nvim
-        nvim-surround
-        ultimate-autopair-nvim
-      ];
-    };
+
+    blink = [
+      # luasnip
+      # friendly-snippets
+      blink-cmp
+      colorful-menu-nvim
+    ];
+
+    git = [
+      neogit
+      gitsigns-nvim
+    ];
+
+    ui = [
+      lualine-nvim
+      hlchunk-nvim
+      eyeliner-nvim
+      nvim-web-devicons
+    ];
+
+    general = [
+      oil-nvim
+      vim-sleuth
+      undotree
+      nvim-treesitter-textobjects
+      nvim-treesitter.withAllGrammars
+    ];
+
+    extras = [
+      nvim-ufo
+      nvim-lint
+      conform-nvim
+      grapple-nvim
+      tabout-nvim
+      nvim-surround
+      ultimate-autopair-nvim
+    ];
   };
 
   sharedLibraries = {

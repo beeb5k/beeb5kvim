@@ -1,22 +1,12 @@
 return {
     {
-        "mini.icons",
+        "nvim-web-devicons",
         event = { "DeferredUIEnter" },
         for_cat = "general.ui",
         after = function()
-            require("mini.icons").setup({})
+            require("nvim-web-devicons").setup({})
         end,
     },
-    -- {
-    --     "tiny-inline-diagnostic.nvim",
-    --     event = { "DeferredUIEnter" },
-    --     for_cat = "general.ui",
-    --     after = function()
-    --         require("tiny-inline-diagnostic").setup({
-    --             preset = "ghost",
-    --         })
-    --     end,
-    -- },
     {
         "lualine.nvim",
         event = { "DeferredUIEnter" },

@@ -20,28 +20,18 @@
       inherit (nixCats) utils;
       luaPath = ./.;
       forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
-      # the following extra_pkg_config contains any values
-      # which you want to pass to the config set of nixpkgs
-      # import nixpkgs { config = extra_pkg_config; inherit system; }
-      # will not apply to module imports
-      # as that will have your system values
       extra_pkg_config = {
-        # allowUnfree = true;
+        allowUnfree = true;
       };
 
-      dependencyOverlays = # (import ./overlays inputs) ++
-        [
-          (utils.standardPluginOverlay inputs)
-          # (utils.fixSystemizedOverlay inputs.codeium.overlays
-          #   (system: inputs.codeium.overlays.${system}.default)
-          # )
-        ];
+      dependencyOverlays = [
+        (utils.standardPluginOverlay inputs)
+      ];
 
       categoryDefinitions = import ./cats.nix inputs;
       packageDefinitions = import ./package.nix inputs;
       defaultPackageName = "Neovim";
     in
-
     forEachSystem (
       system:
       let
@@ -58,7 +48,6 @@
       in
       {
         packages = utils.mkAllWithDefault defaultPackage;
-
         devShells = {
           default = pkgs.mkShell {
             name = defaultPackageName;
@@ -67,7 +56,6 @@
             shellHook = '''';
           };
         };
-
       }
     )
     // (
@@ -98,14 +86,11 @@
         };
       in
       {
-
         overlays = utils.makeOverlays luaPath {
           inherit nixpkgs dependencyOverlays extra_pkg_config;
         } categoryDefinitions packageDefinitions defaultPackageName;
-
         nixosModules.default = nixosModule;
         homeModules.default = homeModule;
-
         inherit utils nixosModule homeModule;
         inherit (utils) templates;
       }
