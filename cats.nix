@@ -21,7 +21,6 @@ in
     rust = with pkgs; [
       rust-analyzer
       cargo
-      rustc
       clippy
       rustfmt
     ];
