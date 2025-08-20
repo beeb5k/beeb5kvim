@@ -1,19 +1,5 @@
 return {
     {
-        "nvim-ts-autotag",
-        event = { "InsertEnter" },
-        for_cats = "extras.core",
-        after = function()
-            require("nvim-ts-autotag").setup({
-                opts = {
-                    enable_close = true,
-                    enable_rename = true,
-                    enable_close_on_slash = false,
-                },
-            })
-        end,
-    },
-    {
         "ultimate-autopair.nvim",
         event = { "InsertEnter", "CmdlineEnter" },
         for_cats = "extras.core",

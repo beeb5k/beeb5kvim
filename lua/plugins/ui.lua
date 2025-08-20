@@ -7,16 +7,16 @@ return {
             require("mini.icons").setup({})
         end,
     },
-    {
-        "tiny-inline-diagnostic.nvim",
-        event = { "DeferredUIEnter" },
-        for_cat = "general.ui",
-        after = function()
-            require("tiny-inline-diagnostic").setup({
-                preset = "ghost",
-            })
-        end,
-    },
+    -- {
+    --     "tiny-inline-diagnostic.nvim",
+    --     event = { "DeferredUIEnter" },
+    --     for_cat = "general.ui",
+    --     after = function()
+    --         require("tiny-inline-diagnostic").setup({
+    --             preset = "ghost",
+    --         })
+    --     end,
+    -- },
     {
         "lualine.nvim",
         event = { "DeferredUIEnter" },

@@ -2,12 +2,8 @@ return {
     {
         "grapple.nvim",
         for_cat = "general.core",
-        -- cmd = { "" },
         event = "DeferredUIEnter",
         dep_of = { "lualine.nvim" },
-        -- ft = "",
-        -- keys = "",
-        -- colorscheme = "",
         after = function(_)
             local function grapple_default_select(path)
                 if vim.startswith(path, "oil://") then

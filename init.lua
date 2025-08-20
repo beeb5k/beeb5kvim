@@ -1,6 +1,30 @@
+vim.lsp.config("*", {
+    capabilities = {
+        textDocument = {
+            semanticTokens = {
+                multilineTokenSupport = true,
+            },
+        },
+    },
+    root_markers = { ".git", ".editorconfig", "flake.nix", "shell.nix", "flake.lock" },
+})
+
+vim.lsp.enable({
+    "clangd",
+    "lua_ls",
+    "rust_analyzer",
+})
 require("config")
+
+vim.lsp.inlay_hint.enable(true)
+
+vim.diagnostic.config({
+    virtual_lines = {
+        current_line = true,
+    },
+})
+
 if vim.g.vscode == nil then
-    require("LSPs")
     require("lze").load({ { import = "plugins" } })
 
     require("tokyonight").setup({

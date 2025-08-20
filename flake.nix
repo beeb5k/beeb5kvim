@@ -51,6 +51,10 @@
           lspsAndRuntimeDeps = {
             general = with pkgs; [
               rust-analyzer
+              cargo
+              rustc
+              clippy
+              rustfmt
               # bash-language-server
             ];
 
@@ -132,15 +136,14 @@
                 undotree
                 nvim-lint
                 vim-sleuth
-                # otter-nvim
                 conform-nvim
                 grapple-nvim
                 nvim-treesitter-textobjects
                 nvim-treesitter.withAllGrammars
               ];
-              java = [
-                nvim-jdtls
-              ];
+              # java = [
+              #   nvim-jdtls
+              # ];
               git = [
                 neogit
                 gitsigns-nvim
@@ -150,14 +153,13 @@
                 lualine-nvim
                 hlchunk-nvim
                 eyeliner-nvim
-                tiny-inline-diagnostic-nvim
+                # tiny-inline-diagnostic-nvim
               ];
             };
             extras = with pkgs.vimPlugins; {
               core = [
                 tabout-nvim
                 nvim-surround
-                nvim-ts-autotag
                 ultimate-autopair-nvim
               ];
             };

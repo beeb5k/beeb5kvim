@@ -148,18 +148,18 @@ return {
                 picker = {},
                 dim = {},
                 scope = {},
-                statuscolumn = {
-                    left = { "mark", "git" },
-                    right = { "sign", "fold" },
-                    folds = {
-                        open = false,
-                        git_hl = false,
-                    },
-                    git = {
-                        patterns = { "GitSign", "MiniDiffSign" },
-                    },
-                    refresh = 50,
-                },
+                -- statuscolumn = {
+                --     left = { "mark", "git" },
+                --     right = { "sign", "fold" },
+                --     folds = {
+                --         open = false,
+                --         git_hl = false,
+                --     },
+                --     git = {
+                --         patterns = { "GitSign", "MiniDiffSign" },
+                --     },
+                --     refresh = 50,
+                -- },
             })
         end,
     },

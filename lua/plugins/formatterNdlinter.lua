@@ -23,14 +23,14 @@ return {
                 formatters_by_ft = {
                     lua = { "stylua" },
                     nix = { "nixfmt" },
-                    go = { "gofmt" },
+                    -- go = { "gofmt" },
                     rust = { "rustfmt", lsp_format = "fallback" },
-                    python = {
-                        "ruff_fix",
-                        "ruff_format",
-                        "ruff_organize_imports",
-                    },
-                    java = { "google-java-format" },
+                    -- python = {
+                    --     "ruff_fix",
+                    --     "ruff_format",
+                    --     "ruff_organize_imports",
+                    -- },
+                    -- java = { "google-java-format" },
                     c = { "clang-format" },
                     cpp = { "clang-format" },
                     cmake = { "cmake-format" },
@@ -56,13 +56,13 @@ return {
         for_cats = "general.core",
         after = function(_)
             require("lint").linters_by_ft = {
-                -- rust = { "clippy" },
+                rust = { "clippy" },
                 c = { "clangtidy" },
                 cpp = { "clangtidy" },
-                go = { "golangcilint" },
+                -- go = { "golangcilint" },
                 javascript = { "eslint" },
                 typescript = { "eslint" },
-                python = { "ruff" },
+                -- python = { "ruff" },
             }
 
             vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "InsertLeave" }, {

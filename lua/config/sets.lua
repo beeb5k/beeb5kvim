@@ -16,6 +16,8 @@ vim.opt.colorcolumn = "85" -- Highlight column 85
 vim.opt.cursorline = true -- Highlight current line
 vim.o.winborder = "rounded"
 vim.o.background = "dark"
+-- vim.o.wildmenu = false
+-- vim.o.wildoptions = ""
 -- vim.opt.statuscolumn = [[%!v:lua.MyStatusCol()]]
 
 -- ================================
