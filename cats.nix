@@ -111,6 +111,7 @@ in
       hlchunk-nvim
       eyeliner-nvim
       nvim-web-devicons
+      tiny-inline-diagnostic-nvim
     ];
 
     general = [
