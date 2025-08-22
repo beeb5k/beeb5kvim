@@ -13,7 +13,7 @@ return {
         for_cat = "general.ui",
         after = function()
             require("tiny-inline-diagnostic").setup({
-                preset = "ghost",
+                preset = "modern",
             })
         end,
     },
@@ -24,44 +24,65 @@ return {
         after = function(_)
             require("lualine").setup({
                 options = {
-                    theme = {
-                        normal = {
-                            a = { fg = "NONE", bg = "NONE" },
-                            b = { fg = "NONE", bg = "NONE" },
-                            c = { fg = "NONE", bg = "NONE" },
-                        },
-                        insert = { a = { fg = "NONE", bg = "NONE" } },
-                        visual = { a = { fg = "NONE", bg = "NONE" } },
-                        replace = { a = { fg = "NONE", bg = "NONE" } },
-                        command = { a = { fg = "NONE", bg = "NONE" } },
-                        inactive = {
-                            a = { fg = "NONE", bg = "NONE" },
-                            b = { fg = "NONE", bg = "NONE" },
-                            c = { fg = "NONE", bg = "NONE" },
-                        },
+                    icons_enabled = true,
+                    component_separators = { left = "|", right = "|" },
+                    section_separators = { left = "", right = "" },
+                    disabled_filetypes = {
+                        statusline = {},
+                        winbar = {},
                     },
-                    section_separators = "",
-                    component_separators = "",
-                    icons_enabled = true, -- optional: to match default vim
+                    ignore_focus = {},
+                    always_divide_middle = true,
+                    globalstatus = false,
+                    refresh = {
+                        statusline = 500,
+                        tabline = 500,
+                        winbar = 500,
+                    },
                 },
                 sections = {
-                    lualine_a = {
-                        "filename",
-                    },
-                    lualine_b = { "branch" },
-                    lualine_c = {},
-                    lualine_x = {
+                    lualine_a = { "mode" },
+                    lualine_b = {
+                        "branch",
                         {
-                            "diagnostics",
-                            sources = { "nvim_diagnostic" },
-                            sections = { "error", "warn", "info", "hint" },
-                            symbols = { error = " ", warn = " ", info = "󰋼 ", hint = " " },
-                            colored = false,
-                            update_in_insert = false,
+                            "diff",
+                            symbols = {
+                                added = " ",
+                                modified = " ",
+                                removed = " ",
+                            },
+                        },
+                        "diagnostics",
+                    },
+                    lualine_c = {
+                        {
+                            "filename",
+                            path = 1,
+                            status = true,
                         },
                     },
-                    lualine_y = { "filetype", "progress" },
+                    lualine_x = {
+                        -- components.python_env,
+                        "encoding",
+                        "fileformat",
+                        "filetype",
+                    },
+                    lualine_y = { "progress" },
                     lualine_z = { "location" },
+                },
+                inactive_sections = {
+                    lualine_a = {},
+                    lualine_b = {
+                        {
+                            "filename",
+                            path = 3,
+                            status = true,
+                        },
+                    },
+                    lualine_c = {},
+                    lualine_x = { "filetype" },
+                    lualine_y = {},
+                    lualine_z = {},
                 },
             })
         end,

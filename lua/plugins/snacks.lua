@@ -147,19 +147,18 @@ return {
             picker = {},
             dim = {},
             scope = {},
-            -- statuscolumn = {
-            --     left = { "mark", "git" },
-            --     right = { "sign", "fold" },
-            --     folds = {
-            --         open = false,
-            --         git_hl = false,
-            --     },
-            --     git = {
-            --         patterns = { "GitSign", "MiniDiffSign" },
-            --     },
-            --     refresh = 50,
-            -- },
-            --
+            statuscolumn = {
+                left = { "mark", "git" },
+                right = { "sign", "fold" },
+                folds = {
+                    open = false,
+                    git_hl = false,
+                },
+                git = {
+                    patterns = { "GitSign", "MiniDiffSign" },
+                },
+                refresh = 50,
+            },
             Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw"),
             Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us"),
             Snacks.toggle.inlay_hints():map("<leader>uh"),
