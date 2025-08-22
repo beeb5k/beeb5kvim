@@ -87,6 +87,10 @@ in
       snacks-nvim
       promise-async # required by ufo
     ];
+
+    rust = with pkgs.neovimPlugins; [
+      rustaceanvim
+    ];
   };
 
   optionalPlugins = with pkgs.vimPlugins; {
