@@ -1,130 +1,170 @@
-return {
-    {
-        "nvim-treesitter",
-        event = { "BufReadPre" },
-        for_cat = "general.core",
-        load = function(name)
-            require("lzextras").loaders.multi({ name, "nvim-treesitter-textobjects" })
-        end,
-        after = function(_)
-            vim.defer_fn(function()
-                require("nvim-treesitter.configs").setup({
-                    -- auto_install = true,
-                    -- parser_install_dir = absolute_path,
+if nixCats("core.general") then
+    return {
+        {
+            "vim-sleuth",
+            for_cat = "general",
+            event = "DeferredUIEnter",
+        },
+        {
+            "mini.pick",
+            for_cat = "general",
+            keys = {
+                {
+                    "<leader>ff",
+                    function()
+                        MiniPick.builtin.files()
+                    end,
+                    desc = "finde files",
+                },
+                {
+                    "<leader>fb",
+                    function()
+                        MiniPick.builtin.buffers()
+                    end,
+                    desc = "Find open buffers",
+                },
+                {
+                    "<leader>fh",
+                    function()
+                        MiniPick.builtin.help()
+                    end,
+                    desc = "Find help",
+                },
+                {
+                    "<leader>/",
+                    function()
+                        MiniPick.builtin.grep_live()
+                    end,
+                    desc = "Live grep",
+                },
+                {
+                    "<leader>fd",
+                    function()
+                        MiniExtra.pickers.diagnostic()
+                    end,
+                    desc = "Diagnostics",
+                },
+                {
+                    "<leader>fgb",
+                    function()
+                        MiniExtra.pickers.git_branches()
+                    end,
+                    desc = "Git branches",
+                },
+                {
+                    "<leader>fc",
+                    function()
+                        MiniExtra.pickers.git_commits()
+                    end,
+                    desc = "Git commits",
+                },
+                {
+                    "<leader>fr",
+                    function()
+                        MiniExtra.pickers.lsp({ scope = "references" })
+                    end,
+                    desc = "LSP references",
+                },
+                {
+                    "<leader>ds",
+                    function()
+                        MiniExtra.pickers.lsp({ scope = "document_symbol" })
+                    end,
+                    desc = "Document symbols",
+                },
+                {
+                    "<leader>ws",
+                    function()
+                        MiniExtra.pickers.lsp({ scope = "workspace_symbol" })
+                    end,
+                    desc = "Workspace symbols",
+                },
+                {
+                    "gd",
+                    function()
+                        MiniExtra.pickers.lsp({ scope = "definition" })
+                    end,
+                    desc = "Goto definition",
+                },
+                {
+                    "gtd",
+                    function()
+                        MiniExtra.pickers.lsp({ scope = "type_definition" })
+                    end,
+                    desc = "Goto type definition",
+                },
+                {
+                    "gD",
+                    function()
+                        MiniExtra.pickers.lsp({ scope = "declaration" })
+                    end,
+                    desc = "Goto declaration",
+                },
+                {
+                    "gr",
+                    function()
+                        MiniExtra.pickers.lsp({ scope = "references" })
+                    end,
+                    desc = "Goto references",
+                },
+                {
+                    "gI",
+                    function()
+                        MiniExtra.pickers.lsp({ scope = "implementation" })
+                    end,
+                    desc = "Goto implementation",
+                },
+            },
 
-                    highlight = {
-                        enable = true,
-                        -- additional_vim_regex_highlighting = { "kotlin" },
-                    },
-                    indent = {
-                        enable = false,
-                    },
-                    incremental_selection = {
-                        enable = true,
-                        keymaps = {
-                            init_selection = "<M-t>",
-                            node_incremental = "<M-t>",
-                            scope_incremental = "<M-T>",
-                            node_decremental = "<M-r>",
-                        },
-                    },
-                    textobjects = {
-                        select = {
-                            enable = true,
-                            lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-                            keymaps = {
-                                ["aa"] = "@parameter.outer",
-                                ["ia"] = "@parameter.inner",
-                                ["af"] = "@function.outer",
-                                ["if"] = "@function.inner",
-                                ["ac"] = "@class.outer",
-                                ["ic"] = "@class.inner",
-                            },
-                        },
-                        move = {
-                            enable = true,
-                            set_jumps = true,
-                            goto_next_start = {
-                                ["]m"] = "@function.outer",
-                                ["]]"] = "@class.outer",
-                            },
-                            goto_next_end = {
-                                ["]M"] = "@function.outer",
-                                ["]["] = "@class.outer",
-                            },
-                            goto_previous_start = {
-                                ["[m"] = "@function.outer",
-                                ["[["] = "@class.outer",
-                            },
-                            goto_previous_end = {
-                                ["[M"] = "@function.outer",
-                                ["[]"] = "@class.outer",
-                            },
-                        },
-                        swap = {
-                            enable = true,
-                            swap_next = {
-                                ["<leader>a"] = "@parameter.inner",
-                            },
-                            swap_previous = {
-                                ["<leader>A"] = "@parameter.inner",
-                            },
-                        },
+            after = function()
+                require("mini.pick").setup()
+            end,
+        },
+
+        {
+            "mini.extra",
+            for_cat = "general",
+            event = "DeferredUIEnter",
+            after = function()
+                require("mini.extra").setup()
+            end,
+        },
+        {
+            "mini.surround",
+            for_cat = "general",
+            event = "DeferredUIEnter",
+            after = function()
+                require("mini.surround").setup()
+            end,
+        },
+        {
+            "oil.nvim",
+            keys = { { "<leader>e", "<CMD>Oil<CR>", desc = "Open oil" } },
+            for_cat = "general",
+            after = function()
+                require("oil").setup({
+                    default_file_explorer = true,
+                    columns = { "icon", "permissions", "size" },
+                    keymaps = {
+                        ["-"] = "actions.parent",
+                        ["<CR>"] = "actions.select",
+                        ["<C-v>"] = "actions.select_vsplit",
+                        ["<C-s>"] = "actions.select_split",
                     },
                 })
-            end, 0)
-        end,
-    },
-    {
-        "oil.nvim",
-        keys = { { "<leader>o", "<CMD>Oil<CR>", desc = "Oil" } },
-        event = { "DeferredUIEnter" },
-        for_cat = "general.core",
-        after = function()
-            require("oil").setup({
-                default_file_explorer = true,
-                columns = { "git", "icon", "permissions", "size" },
-                keymaps = {
-                    ["-"] = "actions.parent",
-                    ["<CR>"] = "actions.select",
-                    ["<C-v>"] = "actions.select_vsplit",
-                    ["<C-s>"] = "actions.select_split",
-                },
-            })
-        end,
-    },
-    {
-        "nvim-ufo",
-        event = { "DeferredUIEnter" },
-        for_cat = "general.core",
-        load = function(name)
-            require("lzextras").loaders.multi({ name, "promise-async" })
-        end,
+            end,
+        },
+        {
+            "undotree",
+            for_cat = "general",
+            cmd = { "UndotreeToggle", "UndotreeHide", "UndotreeShow", "UndotreeFocus", "UndotreePersistUndo" },
+            keys = { { "<leader>U", "<cmd>UndotreeToggle<CR>", mode = { "n" }, desc = "Undo Tree" } },
+            before = function(_)
+                vim.g.undotree_WindowLayout = 1
+                vim.g.undotree_SplitWidth = 40
+            end,
+        },
+    }
+end
 
-        after = function()
-            require("ufo").setup({
-                provider_selector = function(bufnr, filetype, buftype)
-                    return { "treesitter", "indent" }
-                end,
-            })
-
-            vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-            vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-        end,
-    },
-    {
-        "vim-sleuth",
-        for_cat = "general.core",
-        event = "DeferredUIEnter",
-    },
-    {
-        "undotree",
-        for_cat = "general.core",
-        cmd = { "UndotreeToggle", "UndotreeHide", "UndotreeShow", "UndotreeFocus", "UndotreePersistUndo" },
-        keys = { { "<leader>U", "<cmd>UndotreeToggle<CR>", mode = { "n" }, desc = "Undo Tree" } },
-        before = function(_)
-            vim.g.undotree_WindowLayout = 1
-            vim.g.undotree_SplitWidth = 40
-        end,
-    },
-}
+return {}

@@ -2,35 +2,38 @@
 -- ⚡ Performance
 -- ================================
 vim.loader.enable() -- Enable faster Lua module loading
-vim.opt.updatetime = 50 -- Faster completion and CursorHold events
+vim.o.updatetime = 50 -- Faster completion and CursorHold events
 
 -- ================================
 -- 🖥️ User Interface
 -- ================================
--- vim.opt.guicursor = "" -- Use block cursor
-vim.opt.termguicolors = true -- Enable 24-bit RGB colors
-vim.opt.showmode = true -- Don't show mode (handled by statusline)
-vim.opt.showcmd = true -- Hide command in the last line
-vim.opt.signcolumn = "yes" -- Always show sign column
--- vim.opt.colorcolumn = "85" -- Highlight column 85
-vim.opt.cursorline = true -- Highlight current line
+vim.o.guicursor = "" -- Use block cursor
+vim.o.termguicolors = true -- Enable 24-bit RGB colors
+vim.o.showmode = true -- Don't show mode (handled by statusline)
+vim.o.showcmd = true -- Hide command in the last line
+vim.o.signcolumn = "yes" -- Always show sign column
+-- vim.o.colorcolumn = "85" -- Highlight column 85
+vim.o.cursorline = true -- Highlight current line
 vim.o.winborder = "rounded"
 vim.o.background = "dark"
+vim.o.laststatus = 1
+-- vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
+
 -- vim.o.wildmenu = false
 -- vim.o.wildoptions = ""
--- vim.opt.statuscolumn = [[%!v:lua.MyStatusCol()]]
+-- vim.o.statuscolumn = [[%!v:lua.MyStatusCol()]]
 
 -- ================================
 -- 🔢 Line Numbers
 -- ================================
-vim.opt.nu = true -- Absolute line numbers
-vim.opt.relativenumber = true -- Relative line numbers
+vim.o.nu = true -- Absolute line numbers
+vim.o.relativenumber = true -- Relative line numbers
 
 -- ================================
 -- 🖱️ Mouse and Scrolling
 -- ================================
-vim.opt.mouse = "" -- Disable mouse support
-vim.opt.scrolloff = 20 -- Keep 20 lines above/below cursor
+vim.o.mouse = "" -- Disable mouse support
+vim.o.scrolloff = 20 -- Keep 20 lines above/below cursor
 
 -- ================================
 -- 🔑 Keybindings
@@ -41,44 +44,43 @@ vim.g.mapleader = " " -- Set leader key to Space
 -- 📁 File Explorer & File Handling
 -- ================================
 vim.g.loaded_netrwPlugin = 1 -- Disable netrw file explorer
-vim.opt.isfname:append("@-@") -- Allow @ in filenames
 
 -- ================================
 -- 🔤 Indentation and Tabs
 -- ================================
-vim.opt.expandtab = true -- Convert tabs to spaces
-vim.opt.tabstop = 4 -- Number of spaces per tab
-vim.opt.softtabstop = 4 -- Number of spaces for soft tab
-vim.opt.shiftwidth = 4 -- Number of spaces for indent
-vim.opt.smartindent = true -- Smart autoindenting
-vim.opt.smarttab = true -- Use shiftwidth at beginning of lines
-vim.opt.breakindent = true -- Wrap indent to match line start
-vim.opt.backspace = { "indent", "eol", "start" } -- Allow backspace through everything
-vim.opt.autoindent = true -- Copy indent from current line when starting new one
+vim.o.expandtab = true -- Convert tabs to spaces
+vim.o.tabstop = 4 -- Number of spaces per tab
+vim.o.softtabstop = 4 -- Number of spaces for soft tab
+vim.o.shiftwidth = 4 -- Number of spaces for indent
+vim.o.smartindent = true -- Smart autoindenting
+vim.o.smarttab = true -- Use shiftwidth at beginning of lines
+vim.o.breakindent = true -- Wrap indent to match line start
+-- vim.o.backspace = { "indent", "eol", "start" } -- Allow backspace through everything
+vim.o.autoindent = true -- Copy indent from current line when starting new one
 
 -- ================================
 -- 🔃 Text Wrapping
 -- ================================
-vim.opt.wrap = false -- Disable line wrapping
-vim.opt.linebreak = false -- Wrap long lines at word boundaries
+vim.o.wrap = false -- Disable line wrapping
+vim.o.linebreak = false -- Wrap long lines at word boundaries
 
 -- ================================
 -- 🔍 Search
 -- ================================
-vim.opt.hlsearch = false -- Don't highlight search results
-vim.opt.incsearch = true -- Show search matches as you type
+vim.o.hlsearch = false -- Don't highlight search results
+vim.o.incsearch = true -- Show search matches as you type
 
 -- ================================
 -- 🏷️ Misc
 -- ================================
-vim.opt.title = true -- Set terminal title to file name
-vim.opt.swapfile = false
+vim.o.title = true -- Set terminal title to file name
+vim.o.swapfile = false
 
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
-vim.opt.foldenable = true
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.opt.foldlevel = 99
+-- vim.opt.foldlevelstart = 99
+-- vim.o.foldenable = false
+-- vim.o.foldmethod = "expr"
+-- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- disable language provider support (lua and vimscript plugins only)
 vim.g.loaded_perl_provider = 0

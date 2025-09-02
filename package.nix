@@ -17,22 +17,26 @@ let
   baseCats =
     { pkgs, ... }@misc:
     {
-      blink = true;
-      ui = true;
-      git = true;
       theme = true;
       rust = true;
       nix = true;
+      general = true;
       lua = true;
-      javascript = true;
+      javascript = false;
       go = false;
       java = false;
-      clang = true;
+      clang = false;
       python = false;
-      extras = true;
-      general = true;
       markdown = false;
-      lspDebugMode = false;
+      core = {
+        formatter = true;
+        git = true;
+        general = true;
+        completion.blink = true; # enable only one
+        completion.mini = false;
+      };
+      ui = true;
+      tsitter = true;
     };
   baseExtra =
     { pkgs, ... }@misc:
@@ -61,5 +65,9 @@ in
       suffix-LD = false;
       aliases = [ ];
     };
+    categories = baseCats args // {
+      tsitter = false;
+    };
+    extra = baseExtra args;
   };
 }

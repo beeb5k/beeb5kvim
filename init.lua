@@ -1,3 +1,5 @@
-require("config")
+if nixCats("theme") then
+    require("config")
+    vim.cmd([[colorscheme kanagawa]])
+end
 require("lze").load({ { import = "plugins" } })
-vim.cmd([[colorscheme kanagawa]])

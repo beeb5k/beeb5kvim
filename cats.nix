@@ -76,16 +76,16 @@ in
 
   startupPlugins = {
     theme = with pkgs.vimPlugins; [
-      tokyonight-nvim
       kanagawa-nvim
-      catppuccin-nvim
+    ];
+
+    ui = with pkgs.vimPlugins; [
+      nvim-web-devicons
     ];
 
     general = with pkgs.vimPlugins; [
       lze
       lzextras
-      snacks-nvim
-      promise-async # required by ufo
     ];
 
     rust = with pkgs.neovimPlugins; [
@@ -94,46 +94,45 @@ in
   };
 
   optionalPlugins = with pkgs.vimPlugins; {
-    java = [
-      nvim-jdtls
-    ];
+    core = {
+      general = [
+        oil-nvim
+        vim-sleuth
+        undotree
+        mini-pick
+        mini-extra
+        mini-surround
+      ];
 
-    blink = [
-      # luasnip
-      # friendly-snippets
-      blink-cmp
-      colorful-menu-nvim
-    ];
+      formatter = [
+        conform-nvim
+      ];
 
-    git = [
-      neogit
-      gitsigns-nvim
-    ];
+      git = [
+        vim-rhubarb
+        vim-fugitive
+      ];
 
-    ui = [
-      lualine-nvim
-      hlchunk-nvim
-      eyeliner-nvim
-      nvim-web-devicons
-      tiny-inline-diagnostic-nvim
-    ];
+      completion = {
+        blink = [
+          blink-cmp
+          blink-pairs
+        ];
 
-    general = [
-      oil-nvim
-      vim-sleuth
-      undotree
+        mini = [
+          mini-completion
+        ];
+      };
+    };
+
+    tsitter = [
+      nvim-treesitter
       nvim-treesitter-textobjects
       nvim-treesitter.withAllGrammars
     ];
 
-    extras = [
-      nvim-ufo
-      nvim-lint
-      conform-nvim
-      grapple-nvim
-      tabout-nvim
-      nvim-surround
-      ultimate-autopair-nvim
+    ui = [
+      mini-indentscope
     ];
   };
 
@@ -147,10 +146,6 @@ in
   };
 
   extraWrapperArgs = {
-  };
-
-  python3.libraries = {
-    test = (_: [ ]);
   };
 
   extraLuaPackages = {
