@@ -1,4 +1,7 @@
 if nixCats("theme") then
+    require("vague").setup({
+        transparent = true,
+    })
     require("kanagawa").setup({
         compile = false,
         undercurl = true,
@@ -55,7 +58,10 @@ if nixCats("theme") then
         },
     })
 
-    vim.cmd([[colorscheme kanagawa]])
+    local colorschemer = nixCats.extra("colorscheme")
+    if clorschemer ~= "" then
+        vim.cmd.colorscheme(colorschemer)
+    end
 end
 
 return {}

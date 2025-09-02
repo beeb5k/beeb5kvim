@@ -74,21 +74,22 @@ in
     ];
   };
 
-  startupPlugins = {
-    theme = with pkgs.vimPlugins; [
+  startupPlugins = with pkgs.vimPlugins; {
+    theme = [
       kanagawa-nvim
+      pkgs.neovimPlugins.vague
     ];
 
-    ui = with pkgs.vimPlugins; [
+    ui = [
       nvim-web-devicons
     ];
 
-    general = with pkgs.vimPlugins; [
+    general = [
       lze
       lzextras
     ];
 
-    rust = with pkgs.neovimPlugins; [
+    rust = [
       rustaceanvim
     ];
   };

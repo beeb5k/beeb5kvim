@@ -41,6 +41,7 @@ let
   baseExtra =
     { pkgs, ... }@misc:
     {
+      colorscheme = "kanagawa";
       nixdExtras = {
         nixpkgs = ''import ${pkgs.path} {}'';
       };
@@ -68,6 +69,8 @@ in
     categories = baseCats args // {
       tsitter = false;
     };
-    extra = baseExtra args;
+    extra = baseExtra args // {
+      colorscheme = "vague";
+    };
   };
 }
