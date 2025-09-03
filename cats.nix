@@ -67,6 +67,10 @@ in
       cmake-language-server
     ];
 
+    zig = with pkgs; [
+      zls
+    ];
+
     javascript = with pkgs; [
       eslint
       prettierd

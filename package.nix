@@ -25,6 +25,7 @@ let
       javascript = false;
       go = false;
       java = false;
+      zig = true;
       clang = false;
       python = false;
       markdown = false;
