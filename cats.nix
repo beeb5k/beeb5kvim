@@ -60,11 +60,11 @@ in
     ];
 
     clang = with pkgs; [
-      cmake
-      valgrind
+      # cmake
+      # valgrind
       clang-tools
       cmake-format
-      cmake-language-server
+      # cmake-language-server
     ];
 
     zig = with pkgs; [

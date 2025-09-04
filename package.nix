@@ -26,7 +26,7 @@ let
       go = false;
       java = false;
       zig = true;
-      clang = false;
+      clang = true;
       python = false;
       markdown = false;
       core = {
