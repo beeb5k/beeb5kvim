@@ -42,7 +42,7 @@ if nixCats("core.completion.blink") then
         },
         {
             "blink.pairs",
-            event = "DeferredUIEnter",
+            event = "InsertEnter",
             for_cat = "blink",
             after = function()
                 require("blink.pairs").setup({})
