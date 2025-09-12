@@ -15,7 +15,7 @@ vim.g.rustaceanvim = {
     tools = {},
     server = {
         on_attach = function(client, bufnr)
-            RustLsp({ "n", "x" }, "<leader>ca", "codeAction", bufnr)
+            RustLsp({ "n", "x" }, "gra", "codeAction", bufnr)
             RustLsp("n", "<leader>ee", "explainError", bufnr)
             RustLsp("n", "K", { "hover", "actions" }, bufnr)
             RustLsp("n", "L", { "hover", "range" }, bufnr)
