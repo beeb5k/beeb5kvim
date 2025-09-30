@@ -18,12 +18,6 @@ in
       ripgrep
     ];
 
-    rust = with pkgs; [
-      rust-analyzer
-      clippy
-      rustfmt
-    ];
-
     markdown = with pkgs; [
       marksman
       harper
