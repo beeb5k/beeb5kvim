@@ -143,7 +143,7 @@ in
       mini-indentscope
     ];
 
-    extras = [
+    misc = [
       obsidian-nvim
       typst-preview-nvim
     ];

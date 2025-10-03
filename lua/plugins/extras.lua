@@ -1,4 +1,4 @@
-if nixCats("extras") then
+if nixCats("misc") then
     return {
         {
             "obsidian.nvim",

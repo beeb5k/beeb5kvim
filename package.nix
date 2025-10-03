@@ -31,7 +31,7 @@ let
       go = false;
       java = false;
       typst = true;
-      extars = true;
+      misc = true;
       zig = false;
       clang = false;
       python = false;
