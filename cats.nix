@@ -33,6 +33,10 @@ in
       golint
     ];
 
+    typst = with pkgs; [
+      tinymist
+    ];
+
     nix = with pkgs; [
       nixd
       nixfmt-rfc-style
@@ -90,6 +94,10 @@ in
     rust = [
       rustaceanvim
     ];
+
+    extras = [
+      plenary-nvim
+    ];
   };
 
   optionalPlugins = with pkgs.vimPlugins; {
@@ -133,6 +141,11 @@ in
 
     ui = [
       mini-indentscope
+    ];
+
+    extras = [
+      obsidian-nvim
+      typst-preview-nvim
     ];
   };
 

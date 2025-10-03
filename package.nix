@@ -30,6 +30,8 @@ let
       javascript = false;
       go = false;
       java = false;
+      typst = true;
+      extars = true;
       zig = false;
       clang = false;
       python = false;
