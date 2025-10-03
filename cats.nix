@@ -110,6 +110,7 @@ in
       git = [
         vim-rhubarb
         vim-fugitive
+        gitsigns-nvim
       ];
 
       completion = {
