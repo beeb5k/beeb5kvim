@@ -12,6 +12,11 @@ let
       hosts.python3.enable = false;
       wrapRc = true;
       useBinaryWrapper = true;
+      aliases = [
+        "vim"
+        "vi"
+        "nvim"
+      ];
       # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
     };
   baseCats =
@@ -25,10 +30,10 @@ let
       javascript = false;
       go = false;
       java = false;
-      zig = true;
-      clang = true;
+      zig = false;
+      clang = false;
       python = false;
-      markdown = false;
+      markdown = true;
       core = {
         formatter = true;
         git = true;
@@ -50,14 +55,7 @@ let
 in
 {
   Neovim = args: {
-    settings = baseSettings args // {
-      aliases = [
-        "vim"
-        "vi"
-        "nvim"
-      ];
-      # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
-    };
+    settings = baseSettings args;
     categories = baseCats args;
     extra = baseExtra args;
   };
@@ -65,7 +63,6 @@ in
     settings = baseSettings args // {
       suffix-path = false;
       suffix-LD = false;
-      aliases = [ ];
     };
     categories = baseCats args // {
       tsitter = false;
