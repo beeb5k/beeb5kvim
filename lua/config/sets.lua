@@ -17,6 +17,7 @@ vim.o.cursorline = true -- Highlight current line
 vim.o.winborder = "rounded"
 vim.o.background = "dark"
 vim.o.laststatus = 1
+vim.o.conceallevel = 2
 -- vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
 
 -- vim.o.wildmenu = false

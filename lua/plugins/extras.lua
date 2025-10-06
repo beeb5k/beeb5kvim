@@ -3,20 +3,23 @@ if nixCats("misc") then
         {
             "obsidian.nvim",
             event = {
-                "BufReadPre ~/Notes/*.md",
-                "BufNewFile ~/Notes/*.md",
+                "BufReadPre " .. vim.fn.expand("~") .. "/Notes/**/*.md",
+                "BufNewFile " .. vim.fn.expand("~") .. "/Notes/**/*.md",
             },
             dependencies = {
                 "nvim-lua/plenary.nvim",
             },
-            opts = {
-                workspaces = {
-                    {
-                        name = "personal",
-                        path = "~/Notes",
+            after = function()
+                require("obsidian").setup({
+                    legacy_commands = false,
+                    workspaces = {
+                        {
+                            name = "personal",
+                            path = "~/Notes",
+                        },
                     },
-                },
-            },
+                })
+            end,
         },
         {
             "typst-preview.nvim",
