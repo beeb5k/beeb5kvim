@@ -1,7 +1,21 @@
 if nixCats("theme") then
-    require("vague").setup({
-        transparent = true,
-    })
+    vim.g.everforest_background = "medium" -- "soft","medium","hard"
+    vim.g.everforest_transparent_background = 1 -- 0 or 1
+    vim.g.everforest_enable_italic = 1
+    vim.g.everforest_disable_italic_comment = 0
+    vim.g.everforest_ui_contrast = "low"
+    vim.g.everforest_dim_inactive_windows = 1
+
+    -- sonokai
+    vim.g.solokai_brightness = "medium"
+    vim.g.solokai_transparent_background = 1
+    vim.g.solokai_enable_italic = 1
+    vim.g.solokai_disable_italic_comment = 0
+    vim.g.solokai_dim_inactive_windows = 1
+    vim.g.solokai_style = "default"
+    vim.g.solokai_better_performance = 1
+    vim.g.solokai_disable_background = 0
+
     require("kanagawa").setup({
         compile = false,
         undercurl = true,

@@ -446,28 +446,11 @@
         "type": "github"
       }
     },
-    "plugins-vague": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1759785502,
-        "narHash": "sha256-wxW9uAQnHN7sPaWlVb2fnrbdzU0BNyK+cWabL4FkPvY=",
-        "owner": "vague2k",
-        "repo": "vague.nvim",
-        "rev": "27a19ffd5c0456a521813029a99ce76d71dd4cf2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vague2k",
-        "repo": "vague.nvim",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
-        "plugins-rustaceanvim": "plugins-rustaceanvim",
-        "plugins-vague": "plugins-vague"
+        "plugins-rustaceanvim": "plugins-rustaceanvim"
       }
     },
     "treefmt-nix": {

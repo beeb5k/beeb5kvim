@@ -5,10 +5,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     plugins-rustaceanvim.url = "github:mrcjkb/rustaceanvim";
-    plugins-vague = {
-      url = "github:vague2k/vague.nvim";
-      flake = false;
-    };
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };

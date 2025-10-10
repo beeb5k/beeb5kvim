@@ -79,7 +79,8 @@ in
   startupPlugins = with pkgs.vimPlugins; {
     theme = [
       kanagawa-nvim
-      pkgs.neovimPlugins.vague
+      sonokai
+      everforest
     ];
 
     ui = [

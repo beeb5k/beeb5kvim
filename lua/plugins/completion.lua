@@ -45,7 +45,21 @@ if nixCats("core.completion.blink") then
             event = "InsertEnter",
             for_cat = "blink",
             after = function()
-                require("blink.pairs").setup({})
+                require("blink.pairs").setup({
+
+                    highlights = {
+                        enabled = false, -- keep highlighting
+                        groups = {
+                            -- instead of BlinkPairsOrange / etc, use colorscheme groups
+                            "Type",
+                            "Boolean",
+                            -- "Keyword",
+                            "Function",
+                            unmatched = "Error", -- ⬅ now correctly nested here
+                            matchparen = "MatchParen", -- for the matching pair highlight
+                        },
+                    },
+                })
             end,
         },
     }
