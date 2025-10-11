@@ -8,6 +8,14 @@ if nixCats("ui") then
                 require("mini.indentscope").setup()
             end,
         },
+        {
+            "mini.statusline",
+            for_cat = "ui",
+            event = "DeferredUIEnter",
+            after = function()
+                require("mini.statusline").setup()
+            end,
+        },
     }
 end
 

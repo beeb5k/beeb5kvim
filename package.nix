@@ -30,7 +30,7 @@ let
       javascript = false;
       go = false;
       java = false;
-      typst = true;
+      typst = false;
       misc = true;
       zig = false;
       clang = false;

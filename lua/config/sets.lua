@@ -9,14 +9,14 @@ vim.o.updatetime = 50 -- Faster completion and CursorHold events
 -- ================================
 vim.o.guicursor = "" -- Use block cursor
 vim.o.termguicolors = true -- Enable 24-bit RGB colors
-vim.o.showmode = true -- Don't show mode (handled by statusline)
+vim.o.showmode = false -- Don't show mode (handled by statusline)
 vim.o.showcmd = true -- Hide command in the last line
 vim.o.signcolumn = "yes" -- Always show sign column
 -- vim.o.colorcolumn = "85" -- Highlight column 85
 vim.o.cursorline = true -- Highlight current line
-vim.o.winborder = "rounded"
+-- vim.o.winborder = "rounded"
 vim.o.background = "dark"
-vim.o.laststatus = 1
+-- vim.o.laststatus = 1
 vim.o.conceallevel = 2
 -- vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
 

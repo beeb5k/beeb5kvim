@@ -8,6 +8,7 @@ if nixCats("core.general") then
         {
             "mini.pick",
             for_cat = "general",
+            event = "DeferredUIEnter",
             keys = {
                 {
                     "<leader>ff",
@@ -162,6 +163,7 @@ if nixCats("core.general") then
             before = function(_)
                 vim.g.undotree_WindowLayout = 1
                 vim.g.undotree_SplitWidth = 40
+                vim.g.undotree_WindowLayout = 3
             end,
         },
     }

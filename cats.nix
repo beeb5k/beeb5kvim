@@ -12,18 +12,18 @@ in
   ...
 }@packageDef:
 {
-  lspsAndRuntimeDeps = {
-    general = with pkgs; [
+  lspsAndRuntimeDeps = with pkgs; {
+    general = [
       fd
       ripgrep
     ];
 
-    markdown = with pkgs; [
+    markdown = [
       marksman
       harper
     ];
 
-    go = with pkgs; [
+    go = [
       gopls
       delve
       gotools
@@ -33,31 +33,31 @@ in
       golint
     ];
 
-    typst = with pkgs; [
+    typst = [
       tinymist
     ];
 
-    nix = with pkgs; [
+    nix = [
       nixd
       nixfmt-rfc-style
     ];
 
-    java = with pkgs; [
+    java = [
       jdt-language-server
       google-java-format
     ];
 
-    lua = with pkgs; [
+    lua = [
       lua-language-server
       stylua
     ];
 
-    python = with pkgs; [
+    python = [
       ruff
       pyrefly
     ];
 
-    clang = with pkgs; [
+    clang = [
       # cmake
       # valgrind
       clang-tools
@@ -65,11 +65,11 @@ in
       # cmake-language-server
     ];
 
-    zig = with pkgs; [
+    zig = [
       zls
     ];
 
-    javascript = with pkgs; [
+    javascript = [
       eslint
       prettierd
       typescript-language-server
@@ -142,6 +142,7 @@ in
 
     ui = [
       mini-indentscope
+      mini-statusline
     ];
 
     misc = [
