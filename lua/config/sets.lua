@@ -77,11 +77,11 @@ vim.o.incsearch = true -- Show search matches as you type
 vim.o.title = true -- Set terminal title to file name
 vim.o.swapfile = false
 
--- vim.opt.foldlevel = 99
--- vim.opt.foldlevelstart = 99
--- vim.o.foldenable = false
--- vim.o.foldmethod = "expr"
--- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- disable language provider support (lua and vimscript plugins only)
 vim.g.loaded_perl_provider = 0
