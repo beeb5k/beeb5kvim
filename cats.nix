@@ -25,12 +25,12 @@ in
 
     go = [
       gopls
-      delve
-      gotools
-      go-tools
-      go
+      # delve
+      # gotools
+      # go-tools
+      # go
       golangci-lint
-      golint
+      # golint
     ];
 
     typst = [
