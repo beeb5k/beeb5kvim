@@ -1,7 +1,7 @@
 if nixCats("theme") then
     vim.g.everforest_background = "medium" -- "soft","medium","hard"
     vim.g.everforest_transparent_background = 1 -- 0 or 1
-    vim.g.everforest_enable_italic = 1
+    vim.g.everforest_enable_italic = 0
     vim.g.everforest_disable_italic_comment = 0
     vim.g.everforest_ui_contrast = "low"
     vim.g.everforest_dim_inactive_windows = 1
@@ -9,7 +9,7 @@ if nixCats("theme") then
     -- sonokai
     vim.g.solokai_brightness = "medium"
     vim.g.solokai_transparent_background = 1
-    vim.g.solokai_enable_italic = 1
+    vim.g.solokai_enable_italic = 0
     vim.g.solokai_disable_italic_comment = 0
     vim.g.solokai_dim_inactive_windows = 1
     vim.g.solokai_style = "default"
