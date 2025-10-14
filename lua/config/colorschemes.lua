@@ -73,7 +73,7 @@ if nixCats("theme") then
     })
 
     local colorschemer = nixCats.extra("colorscheme")
-    if clorschemer ~= "" then
+    if colorschemer ~= "" then
         vim.cmd.colorscheme(colorschemer)
     end
 end
