@@ -81,6 +81,7 @@ in
       kanagawa-nvim
       sonokai
       everforest
+      pkgs.neovimPlugins.neopywal
     ];
 
     ui = [

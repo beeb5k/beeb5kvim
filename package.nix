@@ -49,7 +49,7 @@ let
   baseExtra =
     { pkgs, ... }@misc:
     {
-      colorscheme = "everforest";
+      colorscheme = "neopywal";
       nixdExtras = {
         nixpkgs = ''import ${pkgs.path} {}'';
       };

@@ -16,6 +16,11 @@ if nixCats("theme") then
     vim.g.solokai_better_performance = 1
     vim.g.solokai_disable_background = 0
 
+    require("neopywal").setup({
+        use_wallust = true,
+        -- transparent_background = true,
+    })
+
     require("kanagawa").setup({
         compile = false,
         undercurl = true,
