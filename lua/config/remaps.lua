@@ -45,3 +45,4 @@ vim.keymap.set("n", "<C-l>", function()
         max_width = 90,
     })
 end, { desc = "Show diagnostics for current line" })
+vim.keymap.set("n", "<leader>g", "<cmd>G<CR>", { silent = true })
