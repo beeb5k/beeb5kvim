@@ -7,7 +7,7 @@ vim.o.updatetime = 50 -- Faster completion and CursorHold events
 -- ================================
 -- 🖥️ User Interface
 -- ================================
-vim.o.guicursor = "" -- Use block cursor
+-- vim.o.guicursor = "" -- Use block cursor
 vim.o.termguicolors = true -- Enable 24-bit RGB colors
 vim.o.showmode = false -- Don't show mode (handled by statusline)
 vim.o.showcmd = true -- Hide command in the last line
