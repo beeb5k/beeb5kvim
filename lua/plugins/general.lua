@@ -140,6 +140,7 @@ if nixCats("core.general") then
         },
         {
             "oil.nvim",
+            event = "DeferredUIEnter",
             keys = { { "<leader>e", "<CMD>Oil<CR>", desc = "Open oil" } },
             for_cat = "general",
             after = function()
