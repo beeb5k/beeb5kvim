@@ -133,15 +133,14 @@ if nixCats("core.general") then
         {
             "mini.surround",
             for_cat = "general",
-            event = "DeferredUIEnter",
+            event = { "BufReadPre", "BufNewFile" },
             after = function()
                 require("mini.surround").setup()
             end,
         },
         {
             "oil.nvim",
-            event = "DeferredUIEnter",
-            keys = { { "<leader>e", "<CMD>Oil<CR>", desc = "Open oil" } },
+            keys = { { "<leader>o", "<CMD>Oil<CR>", desc = "Open oil" } },
             for_cat = "general",
             after = function()
                 require("oil").setup({

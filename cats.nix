@@ -79,7 +79,6 @@ in
   startupPlugins = with pkgs.vimPlugins; {
     theme = [
       kanagawa-nvim
-      sonokai
       everforest
       pkgs.neovimPlugins.neopywal
     ];

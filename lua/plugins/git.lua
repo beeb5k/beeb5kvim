@@ -3,7 +3,7 @@ if nixCats("core.git") then
         {
             "vim-fugitive",
             for_cat = "git",
-            event = { "DeferredUIEnter" },
+            keys = { { "<leader>gg", "<CMD>Git<CR>", desc = "Open vim-fugitive" } },
             cmd = {
                 "G",
                 "Git",
