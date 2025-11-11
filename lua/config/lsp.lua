@@ -5,6 +5,16 @@ vim.lsp.config("*", {
     root_markers = { ".git", ".editorconfig", "flake.nix", "shell.nix", "flake.lock" },
 })
 
+vim.diagnostic.config({
+    severity_sort = true,
+    severity_sort_priority = {
+        Error = 100,
+        Warn = 90,
+        Info = 50,
+        Hint = 10,
+    },
+})
+
 local RustLsp = function(mode, keymap, action, bufnr)
     vim.keymap.set(mode, keymap, function()
         vim.cmd.RustLsp(action)

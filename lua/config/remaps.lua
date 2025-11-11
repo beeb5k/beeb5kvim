@@ -35,13 +35,3 @@ end
 
 vim.keymap.set("n", "K", hover_cap, { silent = true })
 -- vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename Symbol" })
-vim.keymap.set("n", "<C-l>", function()
-    vim.diagnostic.open_float({
-        cursor_autoclose = true,
-        focusable = true,
-        close_events = { "BufLeave", "CursorMoved", "InsertCharPre" },
-        source = "if_many",
-        severity_sort = true,
-        max_width = 90,
-    })
-end, { desc = "Show diagnostics for current line" })
