@@ -3,7 +3,7 @@ if nixCats("ui") then
         {
             "mini.indentscope",
             for_cat = "ui",
-            event = "DeferredUIEnter",
+            event = { "BufReadPre", "BufNewFile" },
             after = function()
                 require("mini.indentscope").setup()
             end,
