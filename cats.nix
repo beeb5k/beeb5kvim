@@ -105,7 +105,7 @@ in
     core = {
       general = [
         oil-nvim
-        vim-sleuth
+        guess-indent-nvim
         undotree
         mini-pick
         mini-extra
@@ -117,8 +117,7 @@ in
       ];
 
       git = [
-        vim-rhubarb
-        vim-fugitive
+        neogit
         gitsigns-nvim
       ];
 

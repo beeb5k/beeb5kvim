@@ -1,35 +1,37 @@
 if nixCats("core.git") then
     return {
         {
-            "vim-fugitive",
+            "neogit",
             for_cat = "git",
-            keys = { { "<leader>gg", "<CMD>Git<CR>", desc = "Open vim-fugitive" } },
+            keys = { { "<leader>gg", "<CMD>Neogit<CR>", desc = "Open Neogit Ui" } },
             cmd = {
-                "G",
-                "Git",
-                "Gdiffsplit",
-                "Gvdiffsplit",
-                "Gedit",
-                "Gread",
-                "Gwrite",
-                "Ggrep",
-                "GMove",
-                "Glgrep",
-                "GRename",
-                "GDelete",
-                "GRemove",
-                "GBrowse",
-                "DiffviewOpen",
-                "DiffviewClose",
-                "DiffviewToggleFiles",
-                "DiffviewFocusFiles",
-                "DiffviewRefresh",
-                "DiffviewFileHistory",
+                "Neogit",
             },
-            load = function(name)
-                require("lzextras").loaders.multi({
-                    name,
-                    "vim-rhubarb",
+            after = function()
+                require("neogit").setup({
+                    disable_hint = true,
+                    kind = "floating",
+
+                    floating = {
+                        relative = "editor",
+                        width = 0.8,
+                        height = 0.7,
+                        style = "minimal",
+                        border = "single",
+                    },
+
+                    commit_editor = {
+                        kind = "tab",
+                        show_staged_diff = true,
+                        -- Accepted values:
+                        -- "split" to show the staged diff below the commit editor
+                        -- "vsplit" to show it to the right
+                        -- "split_above" Like :top split
+                        -- "vsplit_left" like :vsplit, but open to the left
+                        -- "auto" "vsplit" if window would have 80 cols, otherwise "split"
+                        staged_diff_split_kind = "auto",
+                        spell_check = true,
+                    },
                 })
             end,
         },
