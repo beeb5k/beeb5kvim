@@ -53,13 +53,12 @@ if nixCats("core.completion.blink") then
                                 score_offset = 20,
                             },
                             buffer = {
-                                score_offset = 15,
+                                score_offset = 5,
                             },
                             ripgrep = {
                                 module = "blink-ripgrep",
                                 name = "Ripgrep",
                                 opts = {},
-                                score_offset = 10,
                             },
                         },
                     },
