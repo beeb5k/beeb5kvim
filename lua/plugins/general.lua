@@ -156,11 +156,11 @@ if nixCats("core.general") then
             end,
         },
         {
-            "mini.surround",
+            "nvim-surround",
             for_cat = "general",
             event = { "BufReadPre", "BufNewFile" },
             after = function()
-                require("mini.surround").setup()
+                require("nvim-surround").setup()
             end,
         },
         {

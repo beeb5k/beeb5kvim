@@ -109,7 +109,7 @@ in
         undotree
         mini-pick
         mini-extra
-        mini-surround
+        nvim-surround
       ];
 
       formatter = [
