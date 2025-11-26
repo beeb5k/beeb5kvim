@@ -42,6 +42,8 @@ let
         general = true;
         completion.blink = true; # enable only one
         completion.mini = false;
+        picker.mini = false;
+        picker.telescope = true;
       };
       ui = true;
       tsitter = true;

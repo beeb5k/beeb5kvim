@@ -107,10 +107,20 @@ in
         oil-nvim
         guess-indent-nvim
         undotree
-        mini-pick
-        mini-extra
         nvim-surround
       ];
+
+      picker = {
+        mini = [
+          mini-pick
+          mini-extra
+        ];
+        telescope = [
+          telescope-nvim
+          telescope-fzf-native-nvim
+          telescope-ui-select-nvim
+        ];
+      };
 
       formatter = [
         conform-nvim
