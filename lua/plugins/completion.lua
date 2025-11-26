@@ -4,6 +4,12 @@ if nixCats("core.completion.blink") then
             "blink.cmp",
             event = { "InsertEnter", "CmdlineEnter" },
             for_cat = "core.completion.blink",
+            load = function(name)
+                require("lzextras").loaders.multi({
+                    name,
+                    "blink-ripgrep.nvim",
+                })
+            end,
             after = function(_)
                 require("blink.cmp").setup({
                     keymap = { preset = "default" },
@@ -34,7 +40,28 @@ if nixCats("core.completion.blink") then
                     },
                     -- snippets = { preset = "luasnip" },
                     sources = {
-                        default = { "lsp", "path", "snippets", "buffer", "cmdline" },
+                        default = { "lsp", "path", "snippets", "buffer", "ripgrep", "cmdline" },
+                        providers = {
+                            path = {
+                                score_offset = 25,
+                            },
+                            lsp = {
+                                fallbacks = {},
+                                score_offset = 20,
+                            },
+                            snippets = {
+                                score_offset = 20,
+                            },
+                            buffer = {
+                                score_offset = 15,
+                            },
+                            ripgrep = {
+                                module = "blink-ripgrep",
+                                name = "Ripgrep",
+                                opts = {},
+                                score_offset = 10,
+                            },
+                        },
                     },
                     fuzzy = { implementation = "prefer_rust_with_warning" },
                 })
@@ -48,15 +75,14 @@ if nixCats("core.completion.blink") then
                 require("blink.pairs").setup({
 
                     highlights = {
-                        enabled = false, -- keep highlighting
+                        enabled = false,
                         groups = {
-                            -- instead of BlinkPairsOrange / etc, use colorscheme groups
                             "Type",
                             "Boolean",
                             -- "Keyword",
                             "Function",
-                            unmatched = "Error", -- ⬅ now correctly nested here
-                            matchparen = "MatchParen", -- for the matching pair highlight
+                            unmatched = "Error",
+                            matchparen = "MatchParen",
                         },
                     },
                 })

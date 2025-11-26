@@ -135,6 +135,7 @@ in
         blink = [
           blink-cmp
           blink-pairs
+          blink-ripgrep-nvim
         ];
 
         mini = [

@@ -31,7 +31,7 @@ let
       go = false;
       java = false;
       typst = false;
-      misc = true;
+      misc = false;
       zig = false;
       clang = false;
       python = false;
@@ -70,9 +70,16 @@ in
     };
     categories = baseCats args // {
       tsitter = false;
+      core = {
+        formatter = false;
+        git = true;
+        general = true;
+        completion.blink = false; # enable only one
+        completion.mini = true;
+        picker.mini = true;
+        picker.telescope = false;
+      };
     };
-    extra = baseExtra args // {
-      colorscheme = "vague";
-    };
+    extra = baseExtra args;
   };
 }
