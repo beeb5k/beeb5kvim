@@ -45,6 +45,7 @@ vim.g.mapleader = " " -- Set leader key to Space
 -- 📁 File Explorer & File Handling
 -- ================================
 vim.g.loaded_netrwPlugin = 1 -- Disable netrw file explorer
+vim.g.loaded_netrw = 1
 
 -- ================================
 -- 🔤 Indentation and Tabs
@@ -84,8 +85,8 @@ vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- disable language provider support (lua and vimscript plugins only)
-vim.g.loaded_perl_provider = 0
-vim.g.loaded_ruby_provider = 0
-vim.g.loaded_node_provider = 0
-vim.g.loaded_python_provider = 0
-vim.g.loaded_python3_provider = 0
+vim.g.loaded_perl_provider = 1
+vim.g.loaded_ruby_provider = 1
+vim.g.loaded_node_provider = 1
+vim.g.loaded_python_provider = 1
+vim.g.loaded_python3_provider = 1
