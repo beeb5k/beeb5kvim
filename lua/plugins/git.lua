@@ -2,7 +2,7 @@ if nixCats("core.git") then
     return {
         {
             "neogit",
-            for_cat = "git",
+            for_cat = "core.git",
             keys = { { "<leader>gg", "<CMD>Neogit<CR>", desc = "Open Neogit Ui" } },
             cmd = {
                 "Neogit",
@@ -30,7 +30,7 @@ if nixCats("core.git") then
         {
             "gitsigns.nvim",
             event = { "DeferredUIEnter" },
-            for_cat = "general.git",
+            for_cat = "core.git",
             after = function(_)
                 require("gitsigns").setup({
                     signs = {

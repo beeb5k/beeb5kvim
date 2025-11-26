@@ -2,7 +2,7 @@ if nixCats("core.general") then
     return {
         {
             "guess-indent.nvim",
-            for_cat = "general",
+            for_cat = "core.general",
             event = "DeferredUIEnter",
             after = function()
                 require("guess-indent").setup({
@@ -32,7 +32,7 @@ if nixCats("core.general") then
         },
         {
             "nvim-surround",
-            for_cat = "general",
+            for_cat = "core.general",
             event = { "BufReadPre", "BufNewFile" },
             after = function()
                 require("nvim-surround").setup()
@@ -41,7 +41,7 @@ if nixCats("core.general") then
         {
             "oil.nvim",
             keys = { { "<leader>o", "<CMD>Oil<CR>", desc = "Open oil" } },
-            for_cat = "general",
+            for_cat = "core.general",
             after = function()
                 require("oil").setup({
                     default_file_explorer = true,
@@ -57,7 +57,7 @@ if nixCats("core.general") then
         },
         {
             "undotree",
-            for_cat = "general",
+            for_cat = "core.general",
             cmd = { "UndotreeToggle", "UndotreeHide", "UndotreeShow", "UndotreeFocus", "UndotreePersistUndo" },
             keys = { { "<leader>U", "<cmd>UndotreeToggle<CR>", mode = { "n" }, desc = "Undo Tree" } },
             before = function(_)

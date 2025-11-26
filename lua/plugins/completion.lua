@@ -3,7 +3,7 @@ if nixCats("core.completion.blink") then
         {
             "blink.cmp",
             event = { "InsertEnter", "CmdlineEnter" },
-            for_cat = "blink",
+            for_cat = "core.completion.blink",
             after = function(_)
                 require("blink.cmp").setup({
                     keymap = { preset = "default" },
@@ -43,7 +43,7 @@ if nixCats("core.completion.blink") then
         {
             "blink.pairs",
             event = "InsertEnter",
-            for_cat = "blink",
+            for_cat = "core.completion.blink",
             after = function()
                 require("blink.pairs").setup({
 
@@ -67,7 +67,7 @@ elseif nixCats("core.completion.mini") then
     return {
         {
             "mini.completion",
-            for_cat = "general",
+            for_cat = "core.completion.mini",
             event = "InsertEnter",
             after = function()
                 require("mini.completion").setup()
