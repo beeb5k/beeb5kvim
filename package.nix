@@ -28,7 +28,7 @@ let
       general = true;
       lua = true;
       javascript = false;
-      go = false;
+      go = true;
       java = false;
       typst = false;
       misc = false;
