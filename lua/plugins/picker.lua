@@ -89,15 +89,14 @@ elseif nixCats("core.picker.telescope") then
 
             telescope_builtin("<leader>ls", "lsp_document_symbols", "Document symbols"),
             telescope_builtin("<leader>lS", "lsp_workspace_symbols", "Workspace symbols"),
+            telescope_builtin("<leader>lds", "lsp_dynamic_workspace_symbols", "Workspace symbols"),
             telescope_builtin("<leader>ld", "diagnostics", "Diagnostics"),
-            telescope_builtin("<leader>lD", "lsp_definitions", "LSP diagnostic definitions"),
+            telescope_builtin("<leader>lD", "lsp_definitions", "LSP definitions"),
             telescope_builtin("<leader>li", "lsp_incoming_calls", "LSP incoming calls"),
             telescope_builtin("<leader>lo", "lsp_outgoing_calls", "LSP outgoing calls"),
             telescope_builtin("<leader>lt", "lsp_type_definitions", "LSP type definitions"),
-            telescope_builtin("gd", "lsp_definitions", "LSP definitions"),
-            telescope_builtin("gr", "lsp_references", "LSP references"),
-            telescope_builtin("gi", "lsp_implementations", "LSP implementations"),
-            telescope_builtin("gD", "lsp_declarations", "LSP declarations"),
+            telescope_builtin("grr", "lsp_references", "LSP references"),
+            telescope_builtin("gri", "lsp_implementations", "LSP implementations"),
         },
         load = function(name)
             require("lzextras").loaders.multi({
