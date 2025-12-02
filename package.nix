@@ -24,6 +24,7 @@ let
     {
       theme = true;
       rust = true;
+      toml = true;
       nix = true;
       general = true;
       lua = true;

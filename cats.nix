@@ -69,6 +69,10 @@ in
       zls
     ];
 
+    toml = [
+      tombi
+    ];
+
     javascript = [
       eslint
       prettierd

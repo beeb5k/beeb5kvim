@@ -60,6 +60,10 @@ if nixCats("core.completion.blink") then
                                 name = "Ripgrep",
                                 opts = {
                                     project_root_marker = { ".git", "flake.nix", "flake.lock" },
+                                    backend = {
+                                        use = "gitgrep-or-ripgrep",
+                                        customize_icon_highlight = false,
+                                    },
                                 },
                             },
                         },

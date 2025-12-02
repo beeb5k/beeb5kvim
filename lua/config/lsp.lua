@@ -1,5 +1,17 @@
 vim.lsp.inlay_hint.enable(true)
-vim.lsp.enable({ "clangd", "lua_ls", "nixd", "zls", "zuban", "qmlls", "marksman", "harper", "tinymist", "gopls" })
+vim.lsp.enable({
+    "clangd",
+    "lua_ls",
+    "nixd",
+    "zls",
+    "zuban",
+    "qmlls",
+    "marksman",
+    "harper",
+    "tinymist",
+    "gopls",
+    "tombi",
+})
 vim.lsp.config("*", {
     capabilities = { textDocument = { semanticTokens = { multilineTokenSupport = true } } },
     root_markers = { ".git", ".editorconfig", "flake.nix", "shell.nix", "flake.lock" },
