@@ -7,6 +7,8 @@
     plugins-rustaceanvim.url = "github:mrcjkb/rustaceanvim";
     plugins-neopywal.url = "github:RedsXDD/neopywal.nvim";
     plugins-neopywal.flake = false;
+    plugins-everforest-nvim.url = "github:neanias/everforest-nvim";
+    plugins-everforest-nvim.flake = false;
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };

@@ -261,6 +261,22 @@
         "type": "github"
       }
     },
+    "plugins-everforest-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762113281,
+        "narHash": "sha256-y0uLY2fx10fZvdHlsme9c8HZ3pz+kHOFS8OEgqeq4uU=",
+        "owner": "neanias",
+        "repo": "everforest-nvim",
+        "rev": "557bce922401e247a596583679bc181d4d688554",
+        "type": "github"
+      },
+      "original": {
+        "owner": "neanias",
+        "repo": "everforest-nvim",
+        "type": "github"
+      }
+    },
     "plugins-neopywal": {
       "flake": false,
       "locked": {
@@ -304,6 +320,7 @@
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
+        "plugins-everforest-nvim": "plugins-everforest-nvim",
         "plugins-neopywal": "plugins-neopywal",
         "plugins-rustaceanvim": "plugins-rustaceanvim"
       }

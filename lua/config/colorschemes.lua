@@ -1,23 +1,45 @@
 if nixCats("theme") then
-    vim.g.everforest_background = "hard" -- "soft","medium","hard"
-    vim.g.everforest_transparent_background = 1 -- 0 or 1
-    vim.g.everforest_enable_italic = 0
-    vim.g.everforest_disable_italic_comment = 0
-    vim.g.everforest_ui_contrast = "low"
-    vim.g.everforest_dim_inactive_windows = 1
-
     -- require("neopywal").setup({
     --     use_wallust = true,
     --     transparent_background = true,
     -- })
 
+    require("kanagawa-paper").setup({
+        undercurl = true,
+        transparent = true,
+        gutter = false,
+        diag_background = true,
+        dim_inactive = false,
+        terminal_colors = true,
+        cache = true,
+
+        styles = {
+            comment = { italic = true },
+            functions = { italic = false },
+            keyword = { italic = false, bold = false },
+            statement = { italic = false, bold = false },
+            type = { italic = false },
+        },
+        auto_plugins = true,
+    })
+
+    require("everforest").setup({
+        background = "soft",
+        transparent_background_level = 1,
+        italics = true,
+        disable_italic_comments = false,
+        inlay_hints_background = "dimmed",
+        ui_contrast = "low",
+        dim_inactive_windows = false,
+    })
+
     require("kanagawa").setup({
-        compile = false,
+        compile = true,
         undercurl = true,
         commentStyle = { italic = true },
         functionStyle = {},
         keywordStyle = { italic = true },
-        statementStyle = { bold = false },
+        statementStyle = { bold = true },
         typeStyle = {},
         transparent = true,
         dimInactive = false,
@@ -28,41 +50,22 @@ if nixCats("theme") then
                 wave = {},
                 lotus = {},
                 dragon = {},
-                all = {
-                    ui = {
-                        bg_gutter = "none",
-                        float = {
-                            bg = "none",
-                        },
-                    },
-                },
+                all = { ui = { bg_gutter = "none" } },
             },
         },
         overrides = function(colors)
             local theme = colors.theme
             return {
-                NormalFloat = { bg = "none" },
-                FloatBorder = { bg = "none" },
-                FloatTitle = { bg = "none" },
-                LineNr = { bg = "none" },
-                CursorLineNr = { bg = "none", fg = theme.syn.constant },
-                StatusColumn = { bg = "none" },
-
-                NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
-                LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-                MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-
-                Pmenu = { bg = "none", fg = theme.ui.shade0 },
-                PmenuSel = { bg = theme.ui.bg_p1, fg = theme.ui.fg },
-                PmenuBorder = { bg = "none", fg = theme.ui.fg },
-
-                BlinkCmpMenuBorder = { bg = "none", fg = theme.ui.shade0 },
-                StatusLine = { bg = "NONE" },
+                BlinkCmpMenuBorder = { bg = theme.ui.bg_p1, fg = theme.ui.shade0 },
+                Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
+                PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+                PmenuSbar = { bg = theme.ui.bg_m1 },
+                PmenuThumb = { bg = theme.ui.bg_p2 },
             }
         end,
-        theme = "wave",
+        theme = "dragon",
         background = {
-            dark = "wave",
+            dark = "dragon",
             light = "lotus",
         },
     })
