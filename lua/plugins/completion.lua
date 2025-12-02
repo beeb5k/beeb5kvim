@@ -8,6 +8,7 @@ if nixCats("core.completion.blink") then
                 require("lzextras").loaders.multi({
                     name,
                     "blink-ripgrep.nvim",
+                    "friendly-snippets",
                 })
             end,
             after = function(_)
@@ -18,9 +19,9 @@ if nixCats("core.completion.blink") then
                     },
                     signature = {
                         enabled = true,
-                        -- window = {
-                        --     show_documentation = true,
-                        -- },
+                        window = {
+                            show_documentation = true,
+                        },
                     },
                     completion = {
                         documentation = {
@@ -38,9 +39,8 @@ if nixCats("core.completion.blink") then
                             },
                         },
                     },
-                    -- snippets = { preset = "luasnip" },
                     sources = {
-                        default = { "lsp", "path", "snippets", "buffer", "ripgrep", "cmdline" },
+                        default = { "lsp", "path", "snippets", "buffer", "ripgrep" },
                         providers = {
                             path = {
                                 score_offset = 25,
@@ -58,7 +58,9 @@ if nixCats("core.completion.blink") then
                             ripgrep = {
                                 module = "blink-ripgrep",
                                 name = "Ripgrep",
-                                opts = {},
+                                opts = {
+                                    project_root_marker = { ".git", "flake.nix", "flake.lock" },
+                                },
                             },
                         },
                     },

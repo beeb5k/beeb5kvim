@@ -10,7 +10,7 @@ if nixCats("core.git") then
             after = function()
                 require("neogit").setup({
                     disable_hint = true,
-                    kind = "auto",
+                    kind = "split_above",
 
                     commit_editor = {
                         kind = "tab",
