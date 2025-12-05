@@ -7,7 +7,7 @@ if nixCats("misc") then
                 "BufNewFile " .. vim.fn.expand("~") .. "/Notes/**/*.md",
             },
             dependencies = {
-                "nvim-lua/plenary.nvim",
+                "plenary.nvim",
             },
             after = function()
                 require("obsidian").setup({

@@ -4,6 +4,9 @@
 vim.loader.enable() -- Enable faster Lua module loading
 vim.o.updatetime = 50 -- Faster completion and CursorHold events
 
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.expand("~/.local/share/nvim/undo")
+
 -- ================================
 -- 🖥️ User Interface
 -- ================================
