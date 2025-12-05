@@ -7,7 +7,7 @@ if nixCats("core.completion.blink") then
             load = function(name)
                 require("lzextras").loaders.multi({
                     name,
-                    "blink-ripgrep.nvim",
+                    -- "blink-ripgrep.nvim",
                     "friendly-snippets",
                 })
             end,
@@ -40,7 +40,7 @@ if nixCats("core.completion.blink") then
                         },
                     },
                     sources = {
-                        default = { "lsp", "path", "snippets", "buffer", "ripgrep" },
+                        default = { "lsp", "path", "snippets", "buffer", "cmdline", "omni" },
                         providers = {
                             path = {
                                 score_offset = 25,
@@ -55,17 +55,17 @@ if nixCats("core.completion.blink") then
                             buffer = {
                                 score_offset = 5,
                             },
-                            ripgrep = {
-                                module = "blink-ripgrep",
-                                name = "Ripgrep",
-                                opts = {
-                                    project_root_marker = { ".git", "flake.nix", "flake.lock" },
-                                    backend = {
-                                        use = "gitgrep-or-ripgrep",
-                                        customize_icon_highlight = false,
-                                    },
-                                },
-                            },
+                            -- ripgrep = {
+                            --     module = "blink-ripgrep",
+                            --     name = "Ripgrep",
+                            --     opts = {
+                            --         project_root_marker = { ".git", "flake.nix", "flake.lock" },
+                            --         backend = {
+                            --             use = "gitgrep-or-ripgrep",
+                            --             customize_icon_highlight = false,
+                            --         },
+                            --     },
+                            -- },
                         },
                     },
                     fuzzy = { implementation = "prefer_rust_with_warning" },
