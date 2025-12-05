@@ -53,9 +53,8 @@ if nixCats("ai") then
         -- },
         {
             -- opencode.nvim from NickvanDyke
-            "opencode-nvim",
+            "opencode.nvim",
             for_cat = "ai",
-            event = "DeferredUIEnter",
             keys = {
                 -- stylua: ignore start
                 { '<leader>co', function() require('opencode').toggle() end, desc = 'Toggle opencode' },
