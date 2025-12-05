@@ -16,6 +16,7 @@ in
     general = [
       fd
       ripgrep
+      lsof
     ];
 
     markdown = [
@@ -164,6 +165,10 @@ in
     misc = [
       obsidian-nvim
       typst-preview-nvim
+    ];
+
+    ai = [
+      opencode-nvim
     ];
   };
 

@@ -22,6 +22,7 @@ let
   baseCats =
     { pkgs, ... }@misc:
     {
+      ai = true;
       theme = true;
       rust = true;
       toml = true;
@@ -70,6 +71,7 @@ in
       suffix-LD = false;
     };
     categories = baseCats args // {
+      ai = false;
       tsitter = false;
       core = {
         formatter = false;

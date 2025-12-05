@@ -1,4 +1,5 @@
 return {
+    { import = "plugins.ai" },
     { import = "plugins.general" },
     { import = "plugins.completion" },
     { import = "plugins.ui" },
