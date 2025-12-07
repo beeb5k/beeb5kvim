@@ -30,6 +30,7 @@ let
       general = true;
       lua = true;
       javascript = false;
+      fennel = true;
       go = true;
       java = false;
       typst = false;

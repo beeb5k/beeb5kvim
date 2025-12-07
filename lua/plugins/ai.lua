@@ -53,7 +53,7 @@ if nixCats("ai") then
         -- },
         {
             -- opencode.nvim from NickvanDyke
-            "opencode.nvim",
+            "opencode-nvim",
             for_cat = "ai",
             keys = {
                 -- stylua: ignore start
@@ -76,6 +76,7 @@ if nixCats("ai") then
                 vim.g.opencode_opts = {
                     providers = {
                         enabled = "tmux",
+                        tmux = {},
                     },
                 }
             end,

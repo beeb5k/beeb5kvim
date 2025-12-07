@@ -29,6 +29,7 @@ if nixCats("tsitter") then
                         textobjects = {
                             select = {
                                 enable = true,
+                                disable = { "fennel" },
                                 lookahead = true,
                                 keymaps = {
                                     ["aa"] = "@parameter.outer",
@@ -41,6 +42,7 @@ if nixCats("tsitter") then
                             },
                             move = {
                                 enable = true,
+                                disable = { "fennel" },
                                 set_jumps = true,
                                 goto_next_start = {
                                     ["]m"] = "@function.outer",

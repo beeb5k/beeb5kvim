@@ -23,6 +23,7 @@ if nixCats("core.formatter") then
                         go = { "gofmt" },
                         rust = { "rustfmt", lsp_format = "fallback" },
                         toml = { "tombi" },
+                        fennel = { "fnlfmt" },
                         python = {
                             "ruff_fix",
                             "ruff_format",

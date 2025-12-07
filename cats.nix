@@ -79,6 +79,11 @@ in
       prettierd
       typescript-language-server
     ];
+
+    fennel = [
+      fennel-ls
+      fnlfmt
+    ];
   };
 
   startupPlugins = with pkgs.vimPlugins; {
@@ -164,7 +169,7 @@ in
     ];
 
     ai = [
-      opencode-nvim
+      pkgs.neovimPlugins.opencode-nvim
     ];
   };
 

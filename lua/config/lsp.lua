@@ -11,6 +11,7 @@ vim.lsp.enable({
     "tinymist",
     "gopls",
     "tombi",
+    "fennel",
 })
 vim.lsp.config("*", {
     capabilities = { textDocument = { semanticTokens = { multilineTokenSupport = true } } },

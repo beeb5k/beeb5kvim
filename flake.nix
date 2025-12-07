@@ -11,6 +11,8 @@
     plugins-everforest-nvim.flake = false;
     plugins-indentmini.url = "github:nvimdev/indentmini.nvim";
     plugins-indentmini.flake = false;
+    plugins-opencode-nvim.url = "github:NickvanDyke/opencode.nvim";
+    plugins-opencode-nvim.flake = false;
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };

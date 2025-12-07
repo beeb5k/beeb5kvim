@@ -20,13 +20,13 @@ if nixCats("ui") then
                         duration = 0,
                         delay = 100,
                         style = {
-                            { fg = vim.api.nvim_get_hl(0, { name = "IndentBlanklineContextChar" }).fg },
+                            { fg = vim.api.nvim_get_hl(0, { name = "IblScope" }).fg },
                             { fg = vim.api.nvim_get_hl(0, { name = "Error" }).fg },
                         },
                     },
                     indent = {
                         enable = true,
-                        style = { vim.api.nvim_get_hl(0, { name = "IndentBlanklineChar" }) },
+                        style = { vim.api.nvim_get_hl(0, { name = "IblIndent" }) },
                     },
                 })
             end,
@@ -53,8 +53,8 @@ if nixCats("ui") then
                         return vim.api.nvim_get_hl(0, { name = name })
                     end
 
-                    local indent = hl("IndentBlanklineChar").fg
-                    local indent_current = hl("IndentBlanklineContextChar").fg
+                    local indent = hl("IblIndent").fg
+                    local indent_current = hl("IblScope").fg
 
                     vim.api.nvim_set_hl(0, "IndentLine", { fg = indent })
                     vim.api.nvim_set_hl(0, "IndentLineCurrent", { fg = indent_current })
