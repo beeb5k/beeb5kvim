@@ -277,6 +277,22 @@
         "type": "github"
       }
     },
+    "plugins-indentmini": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1759833692,
+        "narHash": "sha256-YDO48kLOkzbJ9HDiQ0rQ/bbvyD8FQ9iNfSl1V0naUAs=",
+        "owner": "nvimdev",
+        "repo": "indentmini.nvim",
+        "rev": "e0f1e381a3949ea6757365fa33f8f1722d3eae90",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvimdev",
+        "repo": "indentmini.nvim",
+        "type": "github"
+      }
+    },
     "plugins-neopywal": {
       "flake": false,
       "locked": {
@@ -321,6 +337,7 @@
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
         "plugins-everforest-nvim": "plugins-everforest-nvim",
+        "plugins-indentmini": "plugins-indentmini",
         "plugins-neopywal": "plugins-neopywal",
         "plugins-rustaceanvim": "plugins-rustaceanvim"
       }

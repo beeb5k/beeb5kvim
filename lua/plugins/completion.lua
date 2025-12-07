@@ -1,4 +1,4 @@
-if nixCats("core.completion.blink") then
+if nixCats("core.completion") then
     return {
         {
             "blink.cmp",
@@ -91,17 +91,6 @@ if nixCats("core.completion.blink") then
                         },
                     },
                 })
-            end,
-        },
-    }
-elseif nixCats("core.completion.mini") then
-    return {
-        {
-            "mini.completion",
-            for_cat = "core.completion.mini",
-            event = "InsertEnter",
-            after = function()
-                require("mini.completion").setup()
             end,
         },
     }

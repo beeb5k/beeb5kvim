@@ -137,18 +137,12 @@ in
         gitsigns-nvim
       ];
 
-      completion = {
-        blink = [
-          blink-cmp
-          blink-pairs
-          blink-ripgrep-nvim
-          friendly-snippets
-        ];
-
-        mini = [
-          mini-completion
-        ];
-      };
+      completion = [
+        blink-cmp
+        blink-pairs
+        blink-ripgrep-nvim
+        friendly-snippets
+      ];
     };
 
     tsitter = [
@@ -160,6 +154,8 @@ in
     ui = [
       mini-indentscope
       mini-statusline
+      pkgs.neovimPlugins.indentmini
+      hlchunk-nvim
     ];
 
     misc = [

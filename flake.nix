@@ -9,6 +9,8 @@
     plugins-neopywal.flake = false;
     plugins-everforest-nvim.url = "github:neanias/everforest-nvim";
     plugins-everforest-nvim.flake = false;
+    plugins-indentmini.url = "github:nvimdev/indentmini.nvim";
+    plugins-indentmini.flake = false;
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };

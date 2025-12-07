@@ -54,6 +54,7 @@ let
     { pkgs, ... }@misc:
     {
       colorscheme = "kanagawa-paper";
+      pluginChoice = "fast"; # fancy | fast | normal
       nixdExtras = {
         nixpkgs = ''import ${pkgs.path} {}'';
       };
