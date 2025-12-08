@@ -2,7 +2,7 @@ return {
     {
         "conform.nvim",
         event = { "BufReadPre", "BufNewFile" },
-        for_cats = "core.formatter",
+        for_cats = "core.general",
         after = function()
             local conform = require("conform")
 

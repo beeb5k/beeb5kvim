@@ -3,9 +3,7 @@ return {
         "neogit",
         for_cat = "core.git",
         keys = { { "<leader>gg", "<CMD>Neogit<CR>", desc = "Open Neogit Ui" } },
-        cmd = {
-            "Neogit",
-        },
+        cmd = { "Neogit" },
         after = function()
             require("neogit").setup({
                 disable_hint = true,
@@ -14,12 +12,6 @@ return {
                 commit_editor = {
                     kind = "tab",
                     show_staged_diff = true,
-                    -- Accepted values:
-                    -- "split" to show the staged diff below the commit editor
-                    -- "vsplit" to show it to the right
-                    -- "split_above" Like :top split
-                    -- "vsplit_left" like :vsplit, but open to the left
-                    -- "auto" "vsplit" if window would have 80 cols, otherwise "split"
                     staged_diff_split_kind = "auto",
                     spell_check = true,
                 },

@@ -58,7 +58,7 @@ return {
                 -- stylua: ignore start
                 { '<leader>co', function() require('opencode').toggle() end, desc = 'Toggle opencode' },
                 { '<leader>ca', function() require('opencode').ask() end, desc = 'Ask opencode', mode = { 'n', 'v' } },
-                { '<leader>cA', function() require('opencode').ask('@buffer ') end, desc = 'Ask opencode about current file', mode = { 'n', 'v' } },
+                { '<leader>cA', function() require('opencode').ask('@buffer ', { submit = true }) end, desc = 'Ask opencode about current file', mode = { 'n', 'v' } },
                 { '<leader>cn', function() require('opencode').command('session.new') end, desc = 'New session' },
                 { '<leader>ce', function() require('opencode').prompt('Explain @this and its context') end, desc = 'Explain code at cursor', mode = { 'n', 'v' } },
                 { '<leader>cr', function() require('opencode').prompt('Review @buffer for correctness and readability') end, desc = 'Review file' },

@@ -6,6 +6,6 @@ return {
     { import = "plugins.git" },
     { import = "plugins.formatter" },
     { import = "plugins.tsitter" },
-    { import = "plugins.extras" },
+    { import = "plugins.misc" },
     { import = "plugins.picker" },
 }

@@ -12,6 +12,7 @@ vim.o.cursorline = true
 vim.o.winborder = "single"
 vim.o.background = "dark"
 vim.o.conceallevel = 2
+vim.o.autoread = true
 
 vim.o.nu = true
 vim.o.relativenumber = true

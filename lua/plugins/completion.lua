@@ -2,7 +2,7 @@ return {
     {
         "blink.cmp",
         event = { "InsertEnter", "CmdlineEnter" },
-        for_cat = "core.completion.blink",
+        for_cat = "core.completion",
         load = function(name)
             require("lzextras").loaders.multi({
                 name,
@@ -74,7 +74,7 @@ return {
     {
         "blink.pairs",
         event = "InsertEnter",
-        for_cat = "core.completion.blink",
+        for_cat = "core.completion",
         after = function()
             require("blink.pairs").setup({
 
