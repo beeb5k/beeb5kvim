@@ -1,61 +1,60 @@
-if nixCats("ai") then
-    return {
-        -- {
-        --     "copilot.lua",
-        --     cmd = "Copilot",
-        --     event = "InsertEnter",
-        --     for_cat = "ai",
-        --     after = function()
-        --         require("copilot").setup({
-        --             nes = {
-        --                 enabled = true,
-        --                 keymap = {
-        --                     accept_and_goto = "<leader>p",
-        --                     accept = false,
-        --                     dismiss = "<Esc>",
-        --                 },
-        --             },
-        --             server = {
-        --                 type = "binary",
-        --                 custom_server_filepath = vim.fn.exepath("copilot-language-server"),
-        --             },
-        --         })
-        --     end,
-        -- },
-        -- {
-        --     "copilot-lsp",
-        --     for_cat = "ai",
-        --     event = "DeferredUIEnter",
-        --     before = function()
-        --         vim.g.copilot_nes_debounce = 500
-        --         vim.lsp.enable("copilot_ls")
-        --         vim.keymap.set("n", "<tab>", function()
-        --             local bufnr = vim.api.nvim_get_current_buf()
-        --             local state = vim.b[bufnr].nes_state
-        --             if state then
-        --                 -- Try to jump to the start of the suggestion edit.
-        --                 -- If already at the start, then apply the pending suggestion and jump to the end of the edit.
-        --                 local _ = require("copilot-lsp.nes").walk_cursor_start_edit()
-        --                     or (
-        --                         require("copilot-lsp.nes").apply_pending_nes()
-        --                         and require("copilot-lsp.nes").walk_cursor_end_edit()
-        --                     )
-        --                 return nil
-        --             else
-        --                 -- Resolving the terminal's inability to distinguish between `TAB` and `<C-i>` in normal mode
-        --                 return "<C-i>"
-        --             end
-        --         end, { desc = "Accept Copilot NES suggestion", expr = true })
-        --     end,
-        --     -- after = function()
-        --     --     require("copilot-lsp").setup()
-        --     -- end,
-        -- },
-        {
-            -- opencode.nvim from NickvanDyke
-            "opencode-nvim",
-            for_cat = "ai",
-            keys = {
+return {
+    -- {
+    --     "copilot.lua",
+    --     cmd = "Copilot",
+    --     event = "InsertEnter",
+    --     for_cat = "ai",
+    --     after = function()
+    --         require("copilot").setup({
+    --             nes = {
+    --                 enabled = true,
+    --                 keymap = {
+    --                     accept_and_goto = "<leader>p",
+    --                     accept = false,
+    --                     dismiss = "<Esc>",
+    --                 },
+    --             },
+    --             server = {
+    --                 type = "binary",
+    --                 custom_server_filepath = vim.fn.exepath("copilot-language-server"),
+    --             },
+    --         })
+    --     end,
+    -- },
+    -- {
+    --     "copilot-lsp",
+    --     for_cat = "ai",
+    --     event = "DeferredUIEnter",
+    --     before = function()
+    --         vim.g.copilot_nes_debounce = 500
+    --         vim.lsp.enable("copilot_ls")
+    --         vim.keymap.set("n", "<tab>", function()
+    --             local bufnr = vim.api.nvim_get_current_buf()
+    --             local state = vim.b[bufnr].nes_state
+    --             if state then
+    --                 -- Try to jump to the start of the suggestion edit.
+    --                 -- If already at the start, then apply the pending suggestion and jump to the end of the edit.
+    --                 local _ = require("copilot-lsp.nes").walk_cursor_start_edit()
+    --                     or (
+    --                         require("copilot-lsp.nes").apply_pending_nes()
+    --                         and require("copilot-lsp.nes").walk_cursor_end_edit()
+    --                     )
+    --                 return nil
+    --             else
+    --                 -- Resolving the terminal's inability to distinguish between `TAB` and `<C-i>` in normal mode
+    --                 return "<C-i>"
+    --             end
+    --         end, { desc = "Accept Copilot NES suggestion", expr = true })
+    --     end,
+    --     -- after = function()
+    --     --     require("copilot-lsp").setup()
+    --     -- end,
+    -- },
+    {
+        -- opencode.nvim from NickvanDyke
+        "opencode-nvim",
+        for_cat = "ai",
+        keys = {
                 -- stylua: ignore start
                 { '<leader>co', function() require('opencode').toggle() end, desc = 'Toggle opencode' },
                 { '<leader>ca', function() require('opencode').ask() end, desc = 'Ask opencode', mode = { 'n', 'v' } },
@@ -68,18 +67,17 @@ if nixCats("ai") then
                 { '<leader>cd', function() require('opencode').prompt('Add documentation comments for @this') end, desc = 'Document selection', mode = 'v' },
                 { '<leader>ct', function() require('opencode').prompt('Add tests for @this') end, desc = 'Test selection', mode = 'v' },
                 { '<leader>cs', function() require('opencode').select() end, desc = 'Select opencode action', mode = { 'n', 'v' } },
-                -- stylua: ignore end
-            },
-            before = function()
-                vim.o.autoread = true
-
-                vim.g.opencode_opts = {
-                    providers = {
-                        enabled = "tmux",
-                        tmux = {},
-                    },
-                }
-            end,
+            -- stylua: ignore end
         },
-    }
-end
+        before = function()
+            vim.o.autoread = true
+
+            vim.g.opencode_opts = {
+                providers = {
+                    enabled = "tmux",
+                    tmux = {},
+                },
+            }
+        end,
+    },
+}

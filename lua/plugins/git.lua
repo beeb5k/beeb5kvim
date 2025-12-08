@@ -1,110 +1,106 @@
-if nixCats("core.git") then
-    return {
-        {
-            "neogit",
-            for_cat = "core.git",
-            keys = { { "<leader>gg", "<CMD>Neogit<CR>", desc = "Open Neogit Ui" } },
-            cmd = {
-                "Neogit",
-            },
-            after = function()
-                require("neogit").setup({
-                    disable_hint = true,
-                    kind = "split_above",
-
-                    commit_editor = {
-                        kind = "tab",
-                        show_staged_diff = true,
-                        -- Accepted values:
-                        -- "split" to show the staged diff below the commit editor
-                        -- "vsplit" to show it to the right
-                        -- "split_above" Like :top split
-                        -- "vsplit_left" like :vsplit, but open to the left
-                        -- "auto" "vsplit" if window would have 80 cols, otherwise "split"
-                        staged_diff_split_kind = "auto",
-                        spell_check = true,
-                    },
-                })
-            end,
+return {
+    {
+        "neogit",
+        for_cat = "core.git",
+        keys = { { "<leader>gg", "<CMD>Neogit<CR>", desc = "Open Neogit Ui" } },
+        cmd = {
+            "Neogit",
         },
-        {
-            "gitsigns.nvim",
-            event = { "DeferredUIEnter" },
-            for_cat = "core.git",
-            after = function(_)
-                require("gitsigns").setup({
-                    signs = {
-                        add = { text = "+" },
-                        change = { text = "~" },
-                        delete = { text = "_" },
-                        topdelete = { text = "‾" },
-                        changedelete = { text = "~" },
-                    },
+        after = function()
+            require("neogit").setup({
+                disable_hint = true,
+                kind = "split_above",
 
-                    on_attach = function(bufnr)
-                        local gs = package.loaded.gitsigns
+                commit_editor = {
+                    kind = "tab",
+                    show_staged_diff = true,
+                    -- Accepted values:
+                    -- "split" to show the staged diff below the commit editor
+                    -- "vsplit" to show it to the right
+                    -- "split_above" Like :top split
+                    -- "vsplit_left" like :vsplit, but open to the left
+                    -- "auto" "vsplit" if window would have 80 cols, otherwise "split"
+                    staged_diff_split_kind = "auto",
+                    spell_check = true,
+                },
+            })
+        end,
+    },
+    {
+        "gitsigns.nvim",
+        event = { "DeferredUIEnter" },
+        for_cat = "core.git",
+        after = function(_)
+            require("gitsigns").setup({
+                signs = {
+                    add = { text = "+" },
+                    change = { text = "~" },
+                    delete = { text = "_" },
+                    topdelete = { text = "‾" },
+                    changedelete = { text = "~" },
+                },
 
-                        local function map(mode, l, r, opts)
-                            opts = opts or {}
-                            opts.buffer = bufnr
-                            vim.keymap.set(mode, l, r, opts)
+                on_attach = function(bufnr)
+                    local gs = package.loaded.gitsigns
+
+                    local function map(mode, l, r, opts)
+                        opts = opts or {}
+                        opts.buffer = bufnr
+                        vim.keymap.set(mode, l, r, opts)
+                    end
+
+                    -- Navigation
+                    map({ "n", "v" }, "]c", function()
+                        if vim.wo.diff then
+                            return "]c"
                         end
+                        vim.schedule(function()
+                            gs.next_hunk()
+                        end)
+                        return "<Ignore>"
+                    end, { expr = true, desc = "Jump to next hunk" })
 
-                        -- Navigation
-                        map({ "n", "v" }, "]c", function()
-                            if vim.wo.diff then
-                                return "]c"
-                            end
-                            vim.schedule(function()
-                                gs.next_hunk()
-                            end)
-                            return "<Ignore>"
-                        end, { expr = true, desc = "Jump to next hunk" })
+                    map({ "n", "v" }, "[c", function()
+                        if vim.wo.diff then
+                            return "[c"
+                        end
+                        vim.schedule(function()
+                            gs.prev_hunk()
+                        end)
+                        return "<Ignore>"
+                    end, { expr = true, desc = "Jump to previous hunk" })
 
-                        map({ "n", "v" }, "[c", function()
-                            if vim.wo.diff then
-                                return "[c"
-                            end
-                            vim.schedule(function()
-                                gs.prev_hunk()
-                            end)
-                            return "<Ignore>"
-                        end, { expr = true, desc = "Jump to previous hunk" })
+                    -- Actions
+                    -- visual mode
+                    map("v", "<leader>hs", function()
+                        gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+                    end, { desc = "stage git hunk" })
+                    map("v", "<leader>hr", function()
+                        gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+                    end, { desc = "reset git hunk" })
+                    -- normal mode
+                    map("n", "<leader>gs", gs.stage_hunk, { desc = "git stage hunk" })
+                    map("n", "<leader>gr", gs.reset_hunk, { desc = "git reset hunk" })
+                    map("n", "<leader>gS", gs.stage_buffer, { desc = "git Stage buffer" })
+                    map("n", "<leader>gu", gs.undo_stage_hunk, { desc = "undo stage hunk" })
+                    map("n", "<leader>gR", gs.reset_buffer, { desc = "git Reset buffer" })
+                    map("n", "<leader>gp", gs.preview_hunk, { desc = "preview git hunk" })
+                    map("n", "<leader>gb", function()
+                        gs.blame_line({ full = false })
+                    end, { desc = "git blame line" })
+                    -- map('n', '<leader>gd', gs.diffthis, { desc = 'git diff against index' })
+                    map("n", "<leader>gD", function()
+                        gs.diffthis("~")
+                    end, { desc = "git diff against last commit" })
 
-                        -- Actions
-                        -- visual mode
-                        map("v", "<leader>hs", function()
-                            gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-                        end, { desc = "stage git hunk" })
-                        map("v", "<leader>hr", function()
-                            gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-                        end, { desc = "reset git hunk" })
-                        -- normal mode
-                        map("n", "<leader>gs", gs.stage_hunk, { desc = "git stage hunk" })
-                        map("n", "<leader>gr", gs.reset_hunk, { desc = "git reset hunk" })
-                        map("n", "<leader>gS", gs.stage_buffer, { desc = "git Stage buffer" })
-                        map("n", "<leader>gu", gs.undo_stage_hunk, { desc = "undo stage hunk" })
-                        map("n", "<leader>gR", gs.reset_buffer, { desc = "git Reset buffer" })
-                        map("n", "<leader>gp", gs.preview_hunk, { desc = "preview git hunk" })
-                        map("n", "<leader>gb", function()
-                            gs.blame_line({ full = false })
-                        end, { desc = "git blame line" })
-                        -- map('n', '<leader>gd', gs.diffthis, { desc = 'git diff against index' })
-                        map("n", "<leader>gD", function()
-                            gs.diffthis("~")
-                        end, { desc = "git diff against last commit" })
+                    -- Toggles
+                    map("n", "<leader>gtb", gs.toggle_current_line_blame, { desc = "toggle git blame line" })
+                    map("n", "<leader>gtd", gs.toggle_deleted, { desc = "toggle git show deleted" })
 
-                        -- Toggles
-                        map("n", "<leader>gtb", gs.toggle_current_line_blame, { desc = "toggle git blame line" })
-                        map("n", "<leader>gtd", gs.toggle_deleted, { desc = "toggle git show deleted" })
-
-                        -- Text object
-                        map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "select git hunk" })
-                    end,
-                })
-            end,
-        },
-    }
-end
-
-return {}
+                    -- Text object
+                    map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "select git hunk" })
+                end,
+            })
+        end,
+    },
+}

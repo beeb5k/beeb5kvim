@@ -18,50 +18,49 @@
     # };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      nixCats,
-      ...
-    }@inputs:
-    let
-      inherit (nixCats) utils;
-      luaPath = ./.;
-      forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
-      extra_pkg_config = {
-        allowUnfree = true;
-      };
+  outputs = {
+    self,
+    nixpkgs,
+    nixCats,
+    ...
+  } @ inputs: let
+    inherit (nixCats) utils;
+    luaPath = ./.;
+    forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
+    extra_pkg_config = {
+      allowUnfree = true;
+    };
 
-      dependencyOverlays = [
-        (utils.standardPluginOverlay inputs)
-      ];
+    dependencyOverlays = [
+      (utils.standardPluginOverlay inputs)
+    ];
 
-      categoryDefinitions = import ./cats.nix inputs;
-      packageDefinitions = import ./package.nix inputs;
-      defaultPackageName = "Neovim";
-    in
+    categoryDefinitions = import ./cats.nix inputs;
+    packageDefinitions = import ./package.nix inputs;
+    defaultPackageName = "Neovim";
+  in
     forEachSystem (
-      system:
-      let
-        nixCatsBuilder = utils.baseBuilder luaPath {
-          inherit
-            nixpkgs
-            system
-            dependencyOverlays
-            extra_pkg_config
-            ;
-        } categoryDefinitions packageDefinitions;
+      system: let
+        nixCatsBuilder =
+          utils.baseBuilder luaPath {
+            inherit
+              nixpkgs
+              system
+              dependencyOverlays
+              extra_pkg_config
+              ;
+          }
+          categoryDefinitions
+          packageDefinitions;
         defaultPackage = nixCatsBuilder defaultPackageName;
-        pkgs = import nixpkgs { inherit system; };
-      in
-      {
+        pkgs = import nixpkgs {inherit system;};
+      in {
         packages = utils.mkAllWithDefault defaultPackage;
         devShells = {
           default = pkgs.mkShell {
             name = defaultPackageName;
-            packages = [ defaultPackage ];
-            inputsFrom = [ ];
+            packages = [defaultPackage];
+            inputsFrom = [];
             shellHook = '''';
           };
         };
@@ -70,7 +69,7 @@
     // (
       let
         nixosModule = utils.mkNixosModules {
-          moduleNamespace = [ defaultPackageName ];
+          moduleNamespace = [defaultPackageName];
           inherit
             defaultPackageName
             dependencyOverlays
@@ -82,7 +81,7 @@
             ;
         };
         homeModule = utils.mkHomeModules {
-          moduleNamespace = [ defaultPackageName ];
+          moduleNamespace = [defaultPackageName];
           inherit
             defaultPackageName
             dependencyOverlays
@@ -93,16 +92,18 @@
             nixpkgs
             ;
         };
-      in
-      {
-        overlays = utils.makeOverlays luaPath {
-          inherit nixpkgs dependencyOverlays extra_pkg_config;
-        } categoryDefinitions packageDefinitions defaultPackageName;
+      in {
+        overlays =
+          utils.makeOverlays luaPath {
+            inherit nixpkgs dependencyOverlays extra_pkg_config;
+          }
+          categoryDefinitions
+          packageDefinitions
+          defaultPackageName;
         nixosModules.default = nixosModule;
         homeModules.default = homeModule;
         inherit utils nixosModule homeModule;
         inherit (utils) templates;
       }
     );
-
 }

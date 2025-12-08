@@ -1,4 +1,4 @@
 require("config.lsp")
-require("config.sets")
-require("config.remaps")
+require("lua.config.options")
+require("lua.config.keys")
 require("config.colorschemes")
