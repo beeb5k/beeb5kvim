@@ -8,4 +8,5 @@ return {
     { import = "plugins.tsitter" },
     { import = "plugins.misc" },
     { import = "plugins.picker" },
+    { import = "plugins.debug" },
 }

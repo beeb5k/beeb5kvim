@@ -17,6 +17,7 @@ in
       fd
       ripgrep
       lsof
+      # lldb
     ];
 
     markdown = [
@@ -27,10 +28,10 @@ in
     go = [
       gopls
       # delve
-      # gotools
-      # go-tools
+      gotools
+      go-tools
       # go
-      golangci-lint
+      # golangci-lint
       # golint
     ];
 
@@ -146,6 +147,13 @@ in
       nvim-treesitter
       nvim-treesitter-textobjects
       nvim-treesitter.withAllGrammars
+    ];
+
+    debug = [
+      nvim-dap
+      nvim-dap-ui
+      nvim-dap-virtual-text
+      nvim-dap-go
     ];
 
     ui = [

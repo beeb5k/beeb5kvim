@@ -70,8 +70,6 @@ return {
             -- stylua: ignore end
         },
         before = function()
-            vim.o.autoread = true
-
             vim.g.opencode_opts = {
                 providers = {
                     enabled = "tmux",
