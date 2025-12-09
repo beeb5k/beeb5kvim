@@ -1,191 +1,189 @@
-inputs:
-let
+inputs: let
   inherit (inputs.nixcats) utils;
 in
-{
-  pkgs,
-  settings,
-  categories,
-  extra,
-  name,
-  mkPlugin,
-  ...
-}@packageDef:
-{
-  lspsAndRuntimeDeps = with pkgs; {
-    general = [
-      fd
-      ripgrep
-      lsof
-      # lldb
-    ];
-
-    markdown = [
-      marksman
-      harper
-    ];
-
-    go = [
-      gopls
-      # delve
-      gotools
-      go-tools
-      # go
-      # golangci-lint
-      # golint
-    ];
-
-    typst = [
-      tinymist
-    ];
-
-    nix = [
-      nixd
-      alejandra
-    ];
-
-    java = [
-      jdt-language-server
-      google-java-format
-    ];
-
-    lua = [
-      lua-language-server
-      stylua
-    ];
-
-    python = [
-      ruff
-      pyrefly
-    ];
-
-    clang = [
-      # cmake
-      # valgrind
-      clang-tools
-      cmake-format
-      # cmake-language-server
-    ];
-
-    zig = [
-      zls
-    ];
-
-    toml = [
-      tombi
-    ];
-
-    javascript = [
-      eslint
-      prettierd
-      typescript-language-server
-    ];
-  };
-
-  startupPlugins = with pkgs.vimPlugins; {
-    theme = [
-      kanagawa-nvim
-      kanagawa-paper-nvim
-      pkgs.neovimPlugins.everforest-nvim
-      pkgs.neovimPlugins.neopywal
-    ];
-
-    ui = [
-      nvim-web-devicons
-    ];
-
-    general = [
-      lze
-      lzextras
-    ];
-
-    rust = [
-      rustaceanvim
-    ];
-
-    extras = [
-      plenary-nvim
-    ];
-  };
-
-  optionalPlugins = with pkgs.vimPlugins; {
-    core = {
+  {
+    pkgs,
+    settings,
+    categories,
+    extra,
+    name,
+    mkPlugin,
+    ...
+  } @ packageDef: {
+    lspsAndRuntimeDeps = with pkgs; {
       general = [
-        oil-nvim
-        guess-indent-nvim
-        undotree
-        nvim-surround
-        conform-nvim
+        fd
+        ripgrep
+        lsof
+        # lldb
       ];
 
-      picker = {
-        mini = [
-          mini-pick
-          mini-extra
-        ];
-        telescope = [
-          telescope-nvim
-          telescope-fzf-native-nvim
-          telescope-ui-select-nvim
-        ];
-      };
-
-      git = [
-        neogit
-        gitsigns-nvim
+      markdown = [
+        marksman
+        harper
       ];
 
-      completion = [
-        blink-cmp
-        blink-pairs
-        blink-ripgrep-nvim
-        friendly-snippets
+      go = [
+        gopls
+        # delve
+        gotools
+        go-tools
+        # go
+        # golangci-lint
+        # golint
+      ];
+
+      typst = [
+        tinymist
+      ];
+
+      nix = [
+        nixd
+        alejandra
+      ];
+
+      java = [
+        jdt-language-server
+        google-java-format
+      ];
+
+      lua = [
+        lua-language-server
+        stylua
+      ];
+
+      python = [
+        ruff
+        pyrefly
+      ];
+
+      clang = [
+        # cmake
+        # valgrind
+        clang-tools
+        cmake-format
+        # cmake-language-server
+      ];
+
+      zig = [
+        zls
+      ];
+
+      toml = [
+        tombi
+      ];
+
+      javascript = [
+        eslint
+        prettierd
+        typescript-language-server
       ];
     };
 
-    tsitter = [
-      nvim-treesitter
-      nvim-treesitter-textobjects
-      nvim-treesitter.withAllGrammars
-    ];
+    startupPlugins = with pkgs.vimPlugins; {
+      theme = [
+        kanagawa-nvim
+        kanagawa-paper-nvim
+        pkgs.neovimPlugins.everforest-nvim
+        pkgs.neovimPlugins.neopywal
+      ];
 
-    debug = [
-      nvim-dap
-      nvim-dap-ui
-      nvim-dap-virtual-text
-      nvim-dap-go
-    ];
+      ui = [
+        nvim-web-devicons
+      ];
 
-    ui = [
-      mini-indentscope
-      mini-statusline
-      pkgs.neovimPlugins.indentmini
-      hlchunk-nvim
-    ];
+      general = [
+        lze
+        lzextras
+      ];
 
-    misc = [
-      obsidian-nvim
-      typst-preview-nvim
-    ];
+      rust = [
+        rustaceanvim
+      ];
 
-    ai = [
-      pkgs.neovimPlugins.opencode-nvim
-    ];
-  };
+      extras = [
+        plenary-nvim
+      ];
+    };
 
-  sharedLibraries = {
-    general = with pkgs; [
-      # libgit2
-    ];
-  };
+    optionalPlugins = with pkgs.vimPlugins; {
+      core = {
+        general = [
+          oil-nvim
+          guess-indent-nvim
+          undotree
+          nvim-surround
+          conform-nvim
+        ];
 
-  environmentVariables = {
-  };
+        picker = {
+          mini = [
+            mini-pick
+            mini-extra
+          ];
+          telescope = [
+            telescope-nvim
+            telescope-fzf-native-nvim
+            telescope-ui-select-nvim
+          ];
+        };
 
-  extraWrapperArgs = {
-  };
+        git = [
+          pkgs.neovimPlugins.neogit
+          gitsigns-nvim
+        ];
 
-  extraLuaPackages = {
-    test = [ (_: [ ]) ];
-  };
-}
+        completion = [
+          blink-cmp
+          blink-pairs
+          blink-ripgrep-nvim
+          friendly-snippets
+        ];
+      };
+
+      tsitter = [
+        nvim-treesitter
+        nvim-treesitter-textobjects
+        nvim-treesitter.withAllGrammars
+      ];
+
+      debug = [
+        nvim-dap
+        nvim-dap-ui
+        nvim-dap-virtual-text
+        nvim-dap-go
+      ];
+
+      ui = [
+        mini-indentscope
+        mini-statusline
+        pkgs.neovimPlugins.indentmini
+        hlchunk-nvim
+      ];
+
+      misc = [
+        obsidian-nvim
+        typst-preview-nvim
+      ];
+
+      ai = [
+        pkgs.neovimPlugins.opencode-nvim
+      ];
+    };
+
+    sharedLibraries = {
+      general = with pkgs; [
+        # libgit2
+      ];
+    };
+
+    environmentVariables = {
+    };
+
+    extraWrapperArgs = {
+    };
+
+    extraLuaPackages = {
+      test = [(_: [])];
+    };
+  }

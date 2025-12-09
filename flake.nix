@@ -13,6 +13,8 @@
     plugins-indentmini.flake = false;
     plugins-opencode-nvim.url = "github:NickvanDyke/opencode.nvim";
     plugins-opencode-nvim.flake = false;
+    plugins-neogit.url = "github:NeogitOrg/neogit";
+    plugins-neogit.flake = false;
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
