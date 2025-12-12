@@ -200,11 +200,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1765270179,
-        "narHash": "sha256-g2a4MhRKu4ymR4xwo+I+auTknXt/+j37Lnf0Mvfl1rE=",
+        "lastModified": 1765425892,
+        "narHash": "sha256-jlQpSkg2sK6IJVzTQBDyRxQZgKADC2HKMRfGCSgNMHo=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "677fbe97984e7af3175b6c121f3c39ee5c8d62c9",
+        "rev": "5d6bdbddb4695a62f0d00a3620b37a15275a5093",
         "type": "github"
       },
       "original": {
@@ -296,11 +296,11 @@
     "plugins-neogit": {
       "flake": false,
       "locked": {
-        "lastModified": 1765264389,
-        "narHash": "sha256-cKxsVGs2GSd/bi9RHOHbRcQtbxAN2vC5JtLuEpWmBBc=",
+        "lastModified": 1765556139,
+        "narHash": "sha256-BBre2HyecQp1TlhJEWbkUpeu5Y4urZVgVf4dqU7RQT0=",
         "owner": "NeogitOrg",
         "repo": "neogit",
-        "rev": "8c75d6d010a5b6d28bc50f2976fe9f341cf268bc",
+        "rev": "d8bf9102692250193b855acd9025a826f1af2729",
         "type": "github"
       },
       "original": {
@@ -328,11 +328,11 @@
     "plugins-opencode-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1764876788,
-        "narHash": "sha256-nKOsHgMptHnOS+SCTHa77sQ/ZiUY0aW26I8GN7ocRHE=",
+        "lastModified": 1765572088,
+        "narHash": "sha256-JBzw4KWNDGINLwzZldUYJIFp8UfKtgZapeR0yeGlXXc=",
         "owner": "NickvanDyke",
         "repo": "opencode.nvim",
-        "rev": "963fad75f794deb85d1c310d2e2cb033da44f670",
+        "rev": "b985ecf18a9830c7c6107fd51360180e1fae59d8",
         "type": "github"
       },
       "original": {
