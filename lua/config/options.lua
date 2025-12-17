@@ -18,7 +18,7 @@ vim.o.nu = true
 vim.o.relativenumber = true
 
 vim.o.mouse = ""
-vim.o.scrolloff = 20
+vim.o.scrolloff = 21
 
 vim.g.mapleader = " "
 
