@@ -30,7 +30,7 @@ inputs: let
     lua = true;
     javascript = false;
     fennel = true;
-    go = true;
+    go = false;
     java = false;
     typst = false;
     misc = false;
