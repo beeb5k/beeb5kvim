@@ -11,7 +11,10 @@ return {
         end,
         after = function(_)
             vim.defer_fn(function()
-                require("nvim-treesitter.configs").setup({
+                require("nvim-treesitter.config").setup({
+                    auto_install = false,
+                    sync_install = false,
+                    ensure_installed = {},
                     highlight = {
                         enable = true,
                     },

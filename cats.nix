@@ -142,7 +142,6 @@ in
       };
 
       tsitter = [
-        nvim-treesitter
         nvim-treesitter-textobjects
         nvim-treesitter.withAllGrammars
       ];
