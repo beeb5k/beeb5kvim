@@ -75,7 +75,6 @@ in
 
       rust = [
         rustfmt
-        rust-analyzer
       ];
 
       javascript = [
