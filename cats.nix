@@ -73,6 +73,11 @@ in
         tombi
       ];
 
+      rust = [
+        rustfmt
+        rust-analyzer
+      ];
+
       javascript = [
         eslint
         prettierd
