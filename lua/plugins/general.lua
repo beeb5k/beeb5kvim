@@ -6,7 +6,7 @@ return {
         after = function()
             require("guess-indent").setup({
                 auto_cmd = true,
-                override_editorconfig = false,
+                override_editorconfig = true,
                 filetype_exclude = {
                     "netrw",
                     "tutor",
