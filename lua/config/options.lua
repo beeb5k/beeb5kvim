@@ -2,7 +2,7 @@ vim.loader.enable()
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+-- vim.o.timeoutlen = 300
 
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
@@ -17,7 +17,7 @@ vim.o.showmode = false
 vim.o.showcmd = true
 vim.o.signcolumn = "yes"
 vim.o.cursorline = true
-vim.o.winborder = "rounded"
+vim.o.winborder = "single"
 vim.o.background = "dark"
 vim.o.conceallevel = 2
 vim.o.autoread = true
